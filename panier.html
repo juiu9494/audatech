@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrello | Audatech Informatica</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #080d12;
+            --primary-dark: #003d82;
+            --primary-light: #e8f0fe;
+            --secondary: #ffffff;
+            --accent: #ff6b35;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #1da851;
+            --text: #333333;
+            --text-light: #666666;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --gray: #e9ecef;
+            --gray-dark: #dee2e6;
+            --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --radius: 6px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            background-color: var(--light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+        }
+        .logo {
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+        .logo span {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            font-family: 'Roboto', sans-serif;
+        }
+        .back-link {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        /* Contenitore principale */
+        .main-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+            width: 100%;
+        }
+        .cart-title {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .cart-title i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        .cart-title h1 {
+            font-size: 2.2rem;
+        }
+        .cart-count {
+            background-color: var(--accent);
+            color: white;
+            font-size: 0.9rem;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        /* Carrello vuoto */
+        .empty-cart {
+            text-align: center;
+            padding: 80px 20px;
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+        }
+        .empty-cart i {
+            font-size: 5rem;
+            color: var(--gray-dark);
+            margin-bottom: 20px;
+        }
+        .empty-cart h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        .empty-cart p {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        /* Lista articoli */
+        .cart-items {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        .cart-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 25px 30px;
+            border-bottom: 1px solid var(--gray);
+            transition: background 0.2s;
+        }
+        .cart-item:last-child {
+            border-bottom: none;
+        }
+        .cart-item:hover {
+            background-color: #f8f9fa;
+        }
+        .item-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex: 1;
+        }
+        .item-icon {
+            width: 55px;
+            height: 55px;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .item-details h3 {
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+        .item-details p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+        .item-price {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+            margin-right: 20px;
+        }
+        .btn-remove {
+            background: none;
+            border: none;
+            color: #dc3545;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 10px;
+            border-radius: 50%;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+        }
+        .btn-remove:hover {
+            background-color: #ffe0e0;
+            color: #c82333;
+        }
+
+        /* Riepilogo */
+        .cart-summary {
+            background: white;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            font-size: 1.1rem;
+        }
+        .summary-row.total {
+            border-top: 2px solid var(--gray);
+            margin-top: 10px;
+            padding-top: 20px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .summary-row.total .total-price {
+            color: var(--accent);
+            font-size: 1.8rem;
+        }
+        .iva-note {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+
+        /* Bottoni azione */
+        .cart-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+            transition: var(--transition);
+            text-align: center;
+        }
+        .btn-whatsapp-order {
+            background-color: #25D366;
+            color: white;
+            flex: 1;
+            min-width: 250px;
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+        }
+        .btn-whatsapp-order:hover {
+            background-color: #1da851;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.5);
+        }
+        .btn-whatsapp-order i {
+            font-size: 1.6rem;
+        }
+        .btn-clear {
+            background-color: white;
+            color: #dc3545;
+            border: 2px solid #dc3545;
+        }
+        .btn-clear:hover {
+            background-color: #dc3545;
+            color: white;
+        }
+        .btn-continue {
+            background-color: white;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        .btn-continue:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+
+        /* Toast notifica */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #dc3545;
+            color: white;
+            padding: 14px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            z-index: 9999;
+            box-shadow: 0 8px 25px rgba(220, 53, 69, 0.4);
+            transform: translateX(120%);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 60px;
+        }
+        footer p {
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .cart-item {
+                flex-wrap: wrap;
+                gap: 15px;
+                padding: 20px;
+            }
+            .item-info {
+                flex: 1 1 100%;
+            }
+            .item-price {
+                margin-right: 0;
+            }
+            .cart-actions {
+                flex-direction: column;
+            }
+            .btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="index.html" class="logo">
+                <img src="logo.png" alt="Audatech Informatica">
+                <span>Audatech</span>
+            </a>
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Torna al sito
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenuto principale -->
+    <div class="main-container">
+        <div class="cart-title">
+            <i class="fas fa-shopping-cart"></i>
+            <h1>Il tuo carrello</h1>
+            <span class="cart-count" id="cartCountBadge">0</span>
+        </div>
+
+        <!-- Carrello vuoto (nascosto se ci sono articoli) -->
+        <div class="empty-cart" id="emptyCart">
+            <i class="fas fa-cart-arrow-down"></i>
+            <h2>Il carrello è vuoto</h2>
+            <p>Non hai ancora aggiunto nessun servizio. Torna al sito per scegliere le riparazioni di cui hai bisogno.</p>
+            <a href="index.html" class="btn btn-continue" style="display: inline-flex;">
+                <i class="fas fa-arrow-left"></i> Sfoglia i servizi
+            </a>
+        </div>
+
+        <!-- Lista articoli (nascosta se carrello vuoto) -->
+        <div id="cartContent" style="display: none;">
+            <div class="cart-items" id="cartItemsList">
+                <!-- Articoli generati dinamicamente -->
+            </div>
+
+            <!-- Riepilogo -->
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Servizi nel carrello:</span>
+                    <span id="summaryCount">0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Totale stimato:</span>
+                    <span class="total-price" id="summaryTotal">€0</span>
+                </div>
+                <p class="iva-note">* I prezzi si intendono a partire da, IVA esclusa. Il preventivo definitivo verrà comunicato su WhatsApp.</p>
+
+                <div class="cart-actions">
+                    <button class="btn btn-whatsapp-order" id="btnOrderWhatsApp">
+                        <i class="fab fa-whatsapp"></i> Invia ordine su WhatsApp
+                    </button>
+                    <button class="btn btn-clear" id="btnClearCart">
+                        <i class="fas fa-trash-alt"></i> Svuota carrello
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast per eliminazione -->
+    <div class="toast" id="toast">
+        <i class="fas fa-trash-alt"></i> Servizio rimosso dal carrello
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Audatech Informatica. Tutti i diritti riservati. | P.IVA 02823020421 </p>
+    </footer>
+
+    <script>
+        // ============ GESTIONE CARRELLO ============
+        function getCart() {
+            try {
+                return JSON.parse(localStorage.getItem('audatech_cart')) || [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveCart(cart) {
+            localStorage.setItem('audatech_cart', JSON.stringify(cart));
+        }
+
+        function removeFromCart(id) {
+            let cart = getCart();
+            cart = cart.filter(item => item.id !== id);
+            saveCart(cart);
+            renderCart();
+            showToast();
+        }
+
+        function clearCart() {
+            localStorage.removeItem('audatech_cart');
+            renderCart();
+        }
+
+        // Associa icone ai servizi in base al nome
+        function getServiceIcon(serviceName) {
+            const name = serviceName.toLowerCase();
+            if (name.includes('smartphone') || name.includes('mobile')) return 'fa-mobile-alt';
+            if (name.includes('pc') || name.includes('laptop') || name.includes('computer')) return 'fa-laptop';
+            if (name.includes('console') || name.includes('playstation') || name.includes('xbox') || name.includes(
+                    'nintendo')) return 'fa-gamepad';
+            if (name.includes('dati') || name.includes('recupero') || name.includes('hard disk')) return 'fa-hdd';
+            if (name.includes('stampa 3d') || name.includes('3d')) return 'fa-cubes';
+            if (name.includes('domicilio') || name.includes('distanza') || name.includes('remoto')) return 'fa-truck';
+            return 'fa-tools';
+        }
+
+        function renderCart() {
+            const cart = getCart();
+            const emptyCart = document.getElementById('emptyCart');
+            const cartContent = document.getElementById('cartContent');
+            const cartItemsList = document.getElementById('cartItemsList');
+            const summaryCount = document.getElementById('summaryCount');
+            const summaryTotal = document.getElementById('summaryTotal');
+            const cartCountBadge = document.getElementById('cartCountBadge');
+            const btnOrderWhatsApp = document.getElementById('btnOrderWhatsApp');
+
+            // Aggiorna contatore badge
+            if (cartCountBadge) {
+                cartCountBadge.textContent = cart.length;
+            }
+
+            if (cart.length === 0) {
+                // Mostra carrello vuoto
+                emptyCart.style.display = 'block';
+                cartContent.style.display = 'none';
+                return;
+            }
+
+            // Mostra contenuto carrello
+            emptyCart.style.display = 'none';
+            cartContent.style.display = 'block';
+
+            // Costruisci lista articoli
+            cartItemsList.innerHTML = '';
+            let total = 0;
+
+            cart.forEach(item => {
+                const priceNum = parseFloat(item.price) || 0;
+                total += priceNum;
+
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'cart-item';
+                itemDiv.innerHTML = `
+                    <div class="item-info">
+                        <div class="item-icon">
+                            <i class="fas ${getServiceIcon(item.name)}"></i>
+                        </div>
+                        <div class="item-details">
+                            <h3>${item.name}</h3>
+                            <p>Aggiunto il ${item.date || 'oggi'}</p>
+                        </div>
+                    </div>
+                    <div class="item-price">Da €${priceNum}</div>
+                    <button class="btn-remove" data-id="${item.id}" title="Rimuovi">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                `;
+                cartItemsList.appendChild(itemDiv);
+            });
+
+            // Event listeners per i pulsanti rimuovi
+            document.querySelectorAll('.btn-remove').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const id = parseInt(this.getAttribute('data-id'));
+                    removeFromCart(id);
+                });
+            });
+
+            // Aggiorna riepilogo
+            summaryCount.textContent = cart.length;
+            summaryTotal.textContent = '€' + total;
+
+            // Configura pulsante WhatsApp
+            btnOrderWhatsApp.onclick = function() {
+                sendOrderViaWhatsApp(cart, total);
+            };
+        }
+
+        function sendOrderViaWhatsApp(cart, total) {
+            const phoneNumber = '393478575458'; // Numero WhatsApp senza +
+            let message = '📋 *NUOVO ORDINE DA CARRELLO*\n\n';
+            message += 'Ecco i servizi richiesti:\n\n';
+
+            cart.forEach((item, index) => {
+                message += `*${index + 1}. ${item.name}*\n`;
+                message += `   💰 Prezzo base: da €${item.price}\n`;
+                if (item.date) {
+                    message += `   📅 Aggiunto: ${item.date}\n`;
+                }
+                message += '\n';
+            });
+
+            message += '📊 *RIEPILOGO:*\n';
+            message += `   🔢 Totale servizi: ${cart.length}\n`;
+            message += `   💶 Totale stimato: €${total} + IVA\n\n`;
+            message +=
+                '✉️ *Messaggio automatico inviato dal carrello di Audatech Informatica.*\n⬇️ _Attendo vostro riscontro per conferma e dettagli._';
+
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl =
+                `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+            window.open(whatsappUrl, '_blank');
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            if (!toast) return;
+            toast.classList.add('show');
+            clearTimeout(toast._timeout);
+            toast._timeout = setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Inizializzazione
+        document.addEventListener('DOMContentLoaded', function() {
+            renderCart();
+
+            // Pulsante svuota carrello
+            const btnClear = document.getElementById('btnClearCart');
+            if (btnClear) {
+                btnClear.addEventListener('click', function() {
+                    if (confirm('Sei sicuro di voler svuotare il carrello? Tutti i servizi verranno rimossi.')) {
+                        clearCart();
+                    }
+                });
+            }
+
+            // Aggiorna il carrello anche quando la pagina torna visibile (per sincronizzazione tra tab)
+            window.addEventListener('focus', function() {
+                renderCart();
+            });
+
+            // Ascolta cambiamenti localStorage da altre pagine
+            window.addEventListener('storage', function(e) {
+                if (e.key === 'audatech_cart') {
+                    renderCart();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
