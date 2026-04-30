@@ -7,51 +7,50 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f5f5f5; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #007bff; text-decoration: none; font-size: 0.9rem; }
-        .back a:hover { text-decoration: underline; }
-        h1 { margin-bottom: 20px; }
-        .gallery { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
-        .gallery img { width: 150px; height: 150px; object-fit: cover; border-radius: 10px; }
-        .desc { background: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; line-height: 1.6; }
-        .contact-form { background: white; padding: 25px; border-radius: 10px; }
-        .contact-form h2 { margin-bottom: 20px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;
-            font-size: 1rem;
-        }
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px;
-            border: none; border-radius: 30px; font-weight: bold; cursor: pointer;
-            text-decoration: none; color: white; font-size: 1rem; transition: background 0.2s;
-        }
-        .btn-whatsapp { background: #25D366; }
-        .btn-whatsapp:hover { background: #1da851; }
-        .btn-email { background: #007bff; }
-        .btn-email:hover { background: #0056b3; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f5f7fc; color: #1a1e2b; line-height: 1.5; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+        .back { margin-bottom: 28px; }
+        .back a { color: #0077ff; text-decoration: none; font-size: 0.95rem; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; }
+        .back a:hover { color: #0056b3; text-decoration: underline; }
+        h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #0a2b4e, #0077ff); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 24px; }
+        .gallery { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+        .gallery img { width: 150px; height: 150px; object-fit: cover; border-radius: 20px; background: #eef4ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .gallery img:hover { transform: scale(1.02); }
+        .desc { background: white; padding: 28px; border-radius: 24px; margin-bottom: 36px; box-shadow: 0 8px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,119,255,0.1); }
+        .desc p { margin-bottom: 12px; }
+        .desc ul { margin-left: 24px; margin-top: 8px; margin-bottom: 12px; }
+        .desc li { margin-bottom: 6px; }
+        .contact-form { background: white; padding: 32px; border-radius: 28px; box-shadow: 0 12px 28px rgba(0,0,0,0.05); border: 1px solid #eef2ff; }
+        .contact-form h2 { font-size: 1.6rem; margin-bottom: 24px; color: #0f2b3d; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e2f44; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid #cfdfed; border-radius: 18px; font-size: 1rem; font-family: inherit; transition: 0.2s; background: #fefefe; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #0077ff; box-shadow: 0 0 0 3px rgba(0,119,255,0.2); }
+        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 28px; border: none; border-radius: 40px; font-weight: 600; font-size: 1rem; cursor: pointer; text-decoration: none; color: white; transition: all 0.2s ease; }
+        .btn-whatsapp { background: #25D366; box-shadow: 0 4px 8px rgba(37,211,102,0.2); }
+        .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 10px 18px rgba(37,211,102,0.25); }
+        .btn-email { background: #0077ff; box-shadow: 0 4px 8px rgba(0,119,255,0.2); }
+        .btn-email:hover { background: #005fcc; transform: translateY(-2px); }
+        .info-note { font-size: 0.8rem; background: #eef4ff; padding: 10px 16px; border-radius: 60px; margin-top: 24px; text-align: center; color: #0050aa; }
+        @media (max-width: 640px) { .btn-group { flex-direction: column; } .btn { justify-content: center; } h1 { font-size: 1.6rem; } }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="back"><a href="./index.html"><i class="fas fa-arrow-left"></i> Torna ai servizi</a></div>
-        <h1>Servizi: Stampe, Fotocopie, Email, Recupero credenziali e molto altro</h1>
+        <h1>🖨️ Servizi: Stampe, Fotocopie, Email, Recupero credenziali e molto altro</h1>
 
-        <!-- Sostituisci con foto reali -->
         <div class="gallery">
-            <img src="https://via.placeholder.com/150" alt="Stampe e fotocopie">
-            <img src="https://via.placeholder.com/150" alt="Assistenza software">
-            <img src="https://via.placeholder.com/150" alt="Rimozione virus">
-            <img src="https://via.placeholder.com/150" alt="Recupero credenziali">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Stampe" alt="Stampe e fotocopie">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Software" alt="Assistenza software">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Antivirus" alt="Rimozione virus">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Password" alt="Recupero credenziali">
         </div>
 
         <div class="desc">
             <p>Offriamo una gamma completa di servizi digitali per privati e professionisti:</p>
-            <ul style="margin-left: 20px; margin-top: 10px;">
+            <ul>
                 <li><strong>Stampe e fotocopie</strong> in formato A4/A3, bianco/nero e colore.</li>
                 <li><strong>Gestione email</strong>: configurazione account, recupero mail perse, invio di grandi allegati.</li>
                 <li><strong>Recupero credenziali</strong>: password dimenticate di qualsiasi account (social, Google, Microsoft, ecc.).</li>
@@ -63,37 +62,41 @@
         </div>
 
         <div class="contact-form">
-            <h2>Descrivi il servizio di cui hai bisogno</h2>
+            <h2>✉️ Descrivi il servizio di cui hai bisogno</h2>
             <form id="contactForm">
                 <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" required>
+                    <label for="nome">Nome e cognome</label>
+                    <input type="text" id="nome" placeholder="Mario Rossi" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" placeholder="tuo@esempio.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="messaggio">Dettagli della richiesta</label>
-                    <textarea id="messaggio" rows="4" required></textarea>
+                    <label for="messaggio">Dettagli della richiesta (stampe, recupero password, assistenza software...)</label>
+                    <textarea id="messaggio" rows="4" placeholder="Es: ho bisogno di stampare 100 pagine a colori / ho perso l'accesso alla mia email / il PC è lento a causa di virus" required></textarea>
                 </div>
 
                 <div class="btn-group">
                     <a href="#" class="btn btn-whatsapp" id="whatsappBtn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Invia su WhatsApp
+                        <i class="fab fa-whatsapp"></i> Contatta su WhatsApp
                     </a>
                     <a href="#" class="btn btn-email" id="emailBtn">
-                        <i class="fas fa-envelope"></i> Invia via Email
+                        <i class="fas fa-envelope"></i> Invia richiesta via Email
                     </a>
+                </div>
+                <div class="info-note">
+                    <i class="fas fa-info-circle"></i> Compila i campi: i pulsanti si aggiorneranno automaticamente con i tuoi dati.
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        // Sostituisci con il tuo numero WhatsApp (senza +, spazi o caratteri speciali)
-        const phoneNumber = '391234567890'; // es. 39 per Italia + numero
-        const emailAddress = 'info@audatech.it';
+        // ========== DATI DI CONTATTO REALI AUDATECH ==========
+        const WHATSAPP_NUMBER = '393478575458';   // Numero WhatsApp aziendale (senza +)
+        const EMAIL_ADDRESS = 'audatechitalia@gmail.com';
+        // ===================================================
 
         const form = document.getElementById('contactForm');
         const nomeInput = document.getElementById('nome');
@@ -102,21 +105,69 @@
         const whatsappBtn = document.getElementById('whatsappBtn');
         const emailBtn = document.getElementById('emailBtn');
 
-        function getFormMessage() {
-            return `Ciao, sono ${nomeInput.value} (${emailInput.value}). %0A%0A` +
-                   `*Servizio richiesto: Stampe / Fotocopie / Supporto software* %0A` +
-                   `Messaggio: ${encodeURIComponent(messaggioInput.value)}`;
+        // Costruisce il testo per WhatsApp
+        function buildWhatsAppText() {
+            let nome = nomeInput.value.trim();
+            let email = emailInput.value.trim();
+            let messaggio = messaggioInput.value.trim();
+
+            if (!nome && !email && !messaggio) {
+                return "Salve, vorrei informazioni sui servizi per ufficio (stampe, recupero credenziali, assistenza software). Potete aiutarmi?";
+            }
+
+            let intro = `*Richiesta da:* ${nome || '(Nome non inserito)'}`;
+            if (email) intro += `\n*Email:* ${email}`;
+            let corpo = `\n\n📋 *Dettaglio richiesta:*\n${messaggio || '(Nessun dettaglio scritto)'}`;
+            let footer = "\n\n🖨️ *Servizio: Stampe / Fotocopie / Email / Recupero credenziali / Assistenza software*";
+            return encodeURIComponent(intro + corpo + footer);
         }
 
-        form.addEventListener('input', () => {
-            const msg = getFormMessage();
-            whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${msg}`;
-            const subject = `Richiesta servizi ufficio da ${nomeInput.value}`;
-            emailBtn.href = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(messaggioInput.value)}%0A%0AInviato da: ${nomeInput.value} (${emailInput.value})`;
+        // Costruisce il link mailto
+        function buildMailToLink() {
+            let nome = nomeInput.value.trim();
+            let email = emailInput.value.trim();
+            let messaggio = messaggioInput.value.trim();
+
+            let subject = `Richiesta servizi ufficio - ${nome || 'Nuovo cliente'}`;
+            let body = `Ciao,\n\nRichiedo informazioni per i seguenti servizi:\n`;
+            body += `- Nome: ${nome || '(non indicato)'}\n`;
+            body += `- Email contatto: ${email || '(non indicata)'}\n\n`;
+            body += `Dettaglio richiesta:\n${messaggio || '(nessun dettaglio aggiunto)'}\n\n`;
+            body += `--\nInviato dal modulo Servizi Ufficio Audatech`;
+            return `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function updateLinks() {
+            whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppText()}`;
+            emailBtn.href = buildMailToLink();
+        }
+
+        form.addEventListener('input', updateLinks);
+        form.addEventListener('change', updateLinks);
+        window.addEventListener('DOMContentLoaded', updateLinks);
+
+        // Evita invio tradizionale del form
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Usa i pulsanti WhatsApp o Email per inviare la tua richiesta.");
         });
 
-        // Trigger iniziale
-        form.dispatchEvent(new Event('input'));
+        // Piccoli avvisi opzionali
+        emailBtn.addEventListener('click', (e) => {
+            if (!emailInput.value.trim() || !nomeInput.value.trim()) {
+                if (!confirm("Non hai inserito nome o email. Il messaggio partirà anonimo, vuoi comunque procedere?")) {
+                    e.preventDefault();
+                }
+            }
+        });
+
+        whatsappBtn.addEventListener('click', (e) => {
+            if (!messaggioInput.value.trim() && !nomeInput.value.trim()) {
+                if (!confirm("Il messaggio WhatsApp non contiene dettagli specifici. Vuoi inviare comunque una richiesta generica?")) {
+                    e.preventDefault();
+                }
+            }
+        });
     </script>
 </body>
 </html>
