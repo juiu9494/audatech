@@ -8,7 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
     <style>
-        /* tutti gli stili rimangono invariati, come nel codice originale */
         :root {
             --primary: #080d12;
             --primary-dark: #003d82;
@@ -170,144 +169,6 @@
             font-size: 1.8rem;
         }
 
-        /* SLIDER HERO */
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 350px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-        @media (max-width: 768px) {
-            .hero-slider {
-                height: 280px;
-            }
-        }
-        .hero-slider .slides {
-             object-fit: cover;
-             min-height: 220px; 
-        }
-        .hero-slider .slides img {
-            min-width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .hero-slider .slide-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-        .hero-slider .slide-nav button {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .hero-slider .slide-nav button.active {
-            background: var(--accent);
-        }
-
-        /* ORDINA FLOATING BUTTON (sinistra) */
-        .ordina-float {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            z-index: 9998;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            flex-direction: row-reverse;
-        }
-        .ordina-float:hover {
-            transform: translateY(-6px);
-        }
-        .ordina-float .ordina-badge {
-            background: white;
-            color: #333;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 10px 18px;
-            border-radius: 30px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
-            pointer-events: none;
-        }
-        .ordina-float:hover .ordina-badge {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .ordina-float .ordina-circle {
-            width: 62px;
-            height: 62px;
-            background: #ff6b35;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.6rem;
-            color: white;
-            box-shadow: 0 6px 24px rgba(255,107,53,0.45);
-            transition: background 0.3s ease, transform 0.3s ease;
-            position: relative;
-            animation: ordinaBounce 2.8s ease-in-out infinite;
-        }
-        .ordina-float:hover .ordina-circle {
-            background: #e55a2b;
-            animation: none;
-            transform: scale(1.08);
-        }
-        .ordina-circle::after {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
-            border: 3px solid rgba(255,107,53,0.35);
-            animation: ordinaRing 2.8s ease-in-out infinite;
-        }
-        .cart-count-badge {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            background: #e55a2b;
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            font-size: 0.75rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 2px solid white;
-            animation: none;
-            z-index: 2;
-        }
-        @keyframes ordinaBounce {
-            0%,100%{transform:translateY(0);}
-            25%{transform:translateY(-8px);}
-            50%{transform:translateY(0);}
-            75%{transform:translateY(-5px);}
-        }
-        @keyframes ordinaRing {
-            0%,100%{transform:scale(1);opacity:0.5;}
-            50%{transform:scale(1.25);opacity:0;}
-        }
-
         /* WHATSAPP FLOATING BUTTON (destra) */
         .whatsapp-float {
             position: fixed;
@@ -382,6 +243,53 @@
             50%{transform:scale(1.25);opacity:0;}
         }
 
+        /* SLIDER HERO */
+        .hero-slider {
+            position: relative;
+            width: 100%;
+            height: 350px;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+        }
+        @media (max-width: 768px) {
+            .hero-slider {
+                height: 250px;
+            }
+        }
+        .hero-slider .slides {
+             display: flex;
+             transition: transform 0.5s ease;
+             height: 100%;
+        }
+        .hero-slider .slides img {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-slider .slide-nav {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 3;
+        }
+        .hero-slider .slide-nav button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .hero-slider .slide-nav button.active {
+            background: var(--accent);
+        }
+
         /* SPLASH SCREEN */
         #splashScreen {
             position: fixed;
@@ -404,8 +312,8 @@
             pointer-events: none;
         }
         .splash-logo-3d {
-            width: 150px;
-            height: 150px;
+            width: 180px;
+            height: 180px;
             margin-bottom: 20px;
             animation: rotate3d 2s cubic-bezier(0.68,-0.55,0.27,1.55) infinite, glowPulse 1.5s ease-in-out infinite alternate;
             transform-style: preserve-3d;
@@ -472,10 +380,19 @@
             align-items: center;
             padding: 15px 0;
         }
+        .logo {
+            display: block;
+            transition: transform 0.3s;
+        }
         .logo img {
-            height: 50px;
+            height: 65px;           /* Logo più grande */
             width: auto;
             display: block;
+        }
+        @media (max-width: 768px) {
+            .logo img {
+                height: 55px;       /* Leggermente ridotto su mobile */
+            }
         }
         .nav-desktop {
             display: flex;
@@ -591,7 +508,7 @@
         }
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 30px;
         }
         .service-card {
@@ -911,25 +828,6 @@
             font-size: 0.9rem;
         }
 
-        /* Notifica carrello */
-        .cart-toast {
-            position: fixed;
-            top: 20px; right: 20px;
-            background: #25D366;
-            color: white;
-            padding: 16px 24px;
-            border-radius: 8px;
-            font-weight: 600;
-            z-index: 9999;
-            box-shadow: 0 8px 25px rgba(37,211,102,0.5);
-            transform: translateX(120%);
-            transition: transform 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        .cart-toast.show { transform: translateX(0); }
-
         /* Responsive */
         @media (max-width: 1100px) {
             .hero-container, .about-container {
@@ -940,6 +838,16 @@
             .hero-image { order: -1; }
         }
         @media (max-width: 768px) {
+            .hero {
+                padding-top: 140px;
+                padding-bottom: 80px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
             .nav-desktop {
                 display: none;
                 position: absolute;
@@ -954,17 +862,33 @@
             .nav-desktop.active { display: flex; }
             .nav-desktop li { margin: 0 0 15px 0; }
             .mobile-toggle { display: block; }
-            .hero-content h1 { font-size: 2.3rem; }
-            .hero-features { flex-direction: column; gap: 15px; }
-            .services-grid { grid-template-columns: 1fr; }
-            .section-padding { padding: 70px 0; }
-            .repair-container { grid-template-columns: 1fr; }
-            .hero-slider { height: 280px; }
-            .ordina-float { bottom: 20px; left: 15px; }
-            .whatsapp-float { bottom: 20px; right: 15px; }
-            .ordina-float .ordina-circle,
+            .hero-features {
+                flex-direction: column;
+                gap: 15px;
+            }
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-padding {
+                padding: 70px 0;
+            }
+            .repair-container {
+                grid-template-columns: 1fr;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 15px;
+            }
             .whatsapp-float .whatsapp-circle {
-                width: 50px; height: 50px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.4rem;
+            }
+            .btn-whatsapp {
+                padding: 14px 28px;
+                font-size: 1rem;
+            }
+            .btn-whatsapp i {
                 font-size: 1.4rem;
             }
         }
@@ -981,21 +905,7 @@
         <div class="splash-particles" id="particles"></div>
     </div>
 
-    <!-- TOAST NOTIFICA CARRELLO -->
-    <div class="cart-toast" id="cartToast">
-        <i class="fas fa-check-circle"></i> Servizio aggiunto al carrello!
-    </div>
-
-    <!-- ORDINA FLOATING BUTTON (sinistra) -->
-    <a href="panier.html" class="ordina-float" aria-label="Vai al carrello">
-        <span class="ordina-badge" id="ordinaBadge">Carrello (0)</span>
-        <span class="ordina-circle">
-            <i class="fas fa-shopping-cart"></i>
-            <span class="cart-count-badge" id="cartCountBadge" style="display:none;">0</span>
-        </span>
-    </a>
-
-    <!-- WHATSAPP FLOATING BUTTON (destra) -->
+    <!-- WHATSAPP FLOATING BUTTON (unico bottone flottante) -->
     <a href="https://wa.me/393478575458?text=Salve%2C%20vorrei%20richiedere%20informazioni%20per%20una%20riparazione"
        class="whatsapp-float"
        target="_blank" rel="noopener noreferrer"
@@ -1026,7 +936,7 @@
         </div>
     </header>
 
-    <!-- HERO CORRETTA: slider dentro la griglia -->
+    <!-- HERO -->
     <section class="hero" id="home">
         <div class="container hero-container">
             <div class="hero-content">
@@ -1052,8 +962,7 @@
                 <div class="hero-slider" id="heroSlider">
                     <div class="slides">
                         <img src="img1.jpg" alt="Riparazione 1">
-                        <!-- Aggiungi altre img se vuoi più slide: -->
-                        <!-- <img src="img2.jpg" alt="Riparazione 2"> -->
+                        <!-- Aggiungi altre img se vuoi più slide -->
                     </div>
                     <div class="slide-nav" id="slideNav"></div>
                 </div>
@@ -1069,48 +978,59 @@
                 <p>Dalla riparazione classica alla stampa 3D personalizzata, passando per il ritiro a domicilio e l'assistenza remota.</p>
             </div>
             <div class="services-grid">
-                <!-- card identiche a prima, nessuna modifica -->
                 <div class="service-card">
-                    <div><div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Riparazione Smartphone</h3>
-                    <p>Sostituzione display, batteria, connettori di ricarica, altoparlanti e riparazione schede madri per tutti i modelli.</p>
-                    <div class="service-price">Da €49<span>+IVA</span></div></div>
-                    <button class="btn btn-secondary btn-add-cart" data-service="Riparazione Smartphone" data-price="49">Aggiungi al Carrello</button>
+                    <div>
+                        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h3>Riparazione Smartphone</h3>
+                        <p>Sostituzione display, batteria, connettori di ricarica, altoparlanti e riparazione schede madri per tutti i modelli.</p>
+                        <div class="service-price">Da €49<span>+IVA</span></div>
+                    </div>
+                    <a href="servizi.html" class="btn btn-secondary">Scopri di più</a>
                 </div>
                 <div class="service-card">
-                    <div><div class="service-icon"><i class="fas fa-laptop"></i></div>
-                    <h3>Riparazione PC & Laptop</h3>
-                    <p>Sostituzione hardware, pulizia interna, riparazione schede madri, aggiornamenti e risoluzione problemi software.</p>
-                    <div class="service-price">Da €69<span>+IVA</span></div></div>
-                    <button class="btn btn-secondary btn-add-cart" data-service="Riparazione PC & Laptop" data-price="69">Aggiungi al Carrello</button>
+                    <div>
+                        <div class="service-icon"><i class="fas fa-laptop"></i></div>
+                        <h3>Riparazione PC & Laptop</h3>
+                        <p>Sostituzione hardware, pulizia interna, riparazione schede madri, aggiornamenti e risoluzione problemi software.</p>
+                        <div class="service-price">Da €69<span>+IVA</span></div>
+                    </div>
+                    <a href="servizi.html" class="btn btn-secondary">Scopri di più</a>
                 </div>
                 <div class="service-card">
-                    <div><div class="service-icon"><i class="fas fa-gamepad"></i></div>
-                    <h3>Riparazione Console</h3>
-                    <p>Riparazione PS4, PS5, Xbox, Nintendo Switch: problemi di surriscaldamento, lettori disco, porte HDMI e altro.</p>
-                    <div class="service-price">Da €79<span>+IVA</span></div></div>
-                    <button class="btn btn-secondary btn-add-cart" data-service="Riparazione Console" data-price="79">Aggiungi al Carrello</button>
+                    <div>
+                        <div class="service-icon"><i class="fas fa-gamepad"></i></div>
+                        <h3>Riparazione Console</h3>
+                        <p>Riparazione PS4, PS5, Xbox, Nintendo Switch: problemi di surriscaldamento, lettori disco, porte HDMI e altro.</p>
+                        <div class="service-price">Da €79<span>+IVA</span></div>
+                    </div>
+                    <a href="servizi.html" class="btn btn-secondary">Scopri di più</a>
                 </div>
                 <div class="service-card">
-                    <div><div class="service-icon"><i class="fas fa-hdd"></i></div>
-                    <h3>Recupero Dati</h3>
-                    <p>Recupero dati da hard disk, SSD, smartphone e schede di memoria danneggiati o non più rilevabili.</p>
-                    <div class="service-price">Da €99<span>+IVA</span></div></div>
-                    <button class="btn btn-secondary btn-add-cart" data-service="Recupero Dati" data-price="99">Aggiungi al Carrello</button>
+                    <div>
+                        <div class="service-icon"><i class="fas fa-hdd"></i></div>
+                        <h3>Recupero Dati</h3>
+                        <p>Recupero dati da hard disk, SSD, smartphone e schede di memoria danneggiati o non più rilevabili.</p>
+                        <div class="service-price">Da €99<span>+IVA</span></div>
+                    </div>
+                    <a href="servizi.html" class="btn btn-secondary">Scopri di più</a>
                 </div>
                 <div class="service-card">
-                    <div><div class="service-icon"><i class="fas fa-cubes"></i></div>
-                    <h3>Stampa 3D & Riparazione Stampanti 3D</h3>
-                    <p>Realizziamo oggetti su misura in 3D e ripariamo stampanti 3D di qualsiasi marca.</p>
-                    <div class="service-price">Da €59<span>+IVA</span></div></div>
-                    <button class="btn btn-secondary btn-add-cart" data-service="Stampa 3D & Riparazione Stampanti 3D" data-price="59">Aggiungi al Carrello</button>
+                    <div>
+                        <div class="service-icon"><i class="fas fa-cubes"></i></div>
+                        <h3>Stampa 3D & Riparazione Stampanti 3D</h3>
+                        <p>Realizziamo oggetti su misura in 3D e ripariamo stampanti 3D di qualsiasi marca.</p>
+                        <div class="service-price">Da €59<span>+IVA</span></div>
+                    </div>
+                    <a href="servizi.html" class="btn btn-secondary">Scopri di più</a>
                 </div>
                 <div class="service-card">
-                    <div><div class="service-icon"><i class="fas fa-truck"></i></div>
-                    <h3>Riparazione a Domicilio / a Distanza</h3>
-                    <p>Il nostro team viene a ritirare il dispositivo oppure ti assiste da remoto. Consegna rapida e supporto online dedicato.</p>
-                    <div class="service-price">Da €49<span>+IVA</span></div></div>
-                    <button class="btn btn-secondary btn-add-cart" data-service="Riparazione a Domicilio / a Distanza" data-price="49">Aggiungi al Carrello</button>
+                    <div>
+                        <div class="service-icon"><i class="fas fa-truck"></i></div>
+                        <h3>Riparazione a Domicilio / a Distanza</h3>
+                        <p>Il nostro team viene a ritirare il dispositivo oppure ti assiste da remoto. Consegna rapida e supporto online dedicato.</p>
+                        <div class="service-price">Da €49<span>+IVA</span></div>
+                    </div>
+                    <a href="servizi.html" class="btn btn-secondary">Scopri di più</a>
                 </div>
             </div>
         </div>
@@ -1325,12 +1245,12 @@
                 <div class="footer-col">
                     <h3>Servizi</h3>
                     <ul class="footer-links">
-                        <li><a href="#servizi">Riparazione Smartphone</a></li>
-                        <li><a href="#servizi">Riparazione PC & Laptop</a></li>
-                        <li><a href="#servizi">Stampa 3D Personalizzata</a></li>
-                        <li><a href="#servizi">Riparazione a Domicilio</a></li>
-                        <li><a href="#servizi">Recupero Dati</a></li>
-                        <li><a href="#servizi">Assistenza da Remoto</a></li>
+                        <li><a href="servizi.html">Riparazione Smartphone</a></li>
+                        <li><a href="servizi.html">Riparazione PC & Laptop</a></li>
+                        <li><a href="servizi.html">Stampa 3D Personalizzata</a></li>
+                        <li><a href="servizi.html">Riparazione a Domicilio</a></li>
+                        <li><a href="servizi.html">Recupero Dati</a></li>
+                        <li><a href="servizi.html">Assistenza da Remoto</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -1441,7 +1361,7 @@
             const navButtons = slideNav.querySelectorAll('button');
 
             function updateSlide(index) {
-                slides.style.transform = `translateX(-${index * 100}%)`;
+                slides.style.transform = 'translateX(-' + (index * 100) + '%)';
                 navButtons.forEach((btn, i) => btn.classList.toggle('active', i === index));
             }
 
@@ -1465,75 +1385,6 @@
             slider.addEventListener('mouseenter', () => clearInterval(interval));
             slider.addEventListener('mouseleave', resetInterval);
         })();
-
-        // ============ CARRELLO / PANIER ============
-        function getCart() {
-            try {
-                return JSON.parse(localStorage.getItem('audatech_cart')) || [];
-            } catch (e) {
-                return [];
-            }
-        }
-
-        function saveCart(cart) {
-            localStorage.setItem('audatech_cart', JSON.stringify(cart));
-            updateCartUI();
-        }
-
-        function addToCart(serviceName, price) {
-            const cart = getCart();
-            cart.push({
-                id: Date.now(),
-                name: serviceName,
-                price: price,
-                date: new Date().toLocaleDateString('it-IT')
-            });
-            saveCart(cart);
-            showToast();
-        }
-
-        function updateCartUI() {
-            const cart = getCart();
-            const countBadge = document.getElementById('cartCountBadge');
-            const ordinaBadge = document.getElementById('ordinaBadge');
-            if (countBadge) {
-                if (cart.length > 0) {
-                    countBadge.style.display = 'flex';
-                    countBadge.textContent = cart.length;
-                } else {
-                    countBadge.style.display = 'none';
-                }
-            }
-            if (ordinaBadge) {
-                ordinaBadge.textContent = cart.length > 0 ? `Carrello (${cart.length})` : 'Carrello (0)';
-            }
-        }
-
-        function showToast() {
-            const toast = document.getElementById('cartToast');
-            if (!toast) return;
-            toast.classList.add('show');
-            clearTimeout(toast._timeout);
-            toast._timeout = setTimeout(() => {
-                toast.classList.remove('show');
-            }, 2000);
-        }
-
-        document.querySelectorAll('.btn-add-cart').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const service = this.getAttribute('data-service');
-                const price = this.getAttribute('data-price');
-                addToCart(service, price);
-                this.textContent = '✓ Aggiunto!';
-                this.style.backgroundColor = '#25D366';
-                setTimeout(() => {
-                    this.textContent = 'Aggiungi al Carrello';
-                    this.style.backgroundColor = '';
-                }, 1500);
-            });
-        });
-
-        updateCartUI();
     </script>
 </body>
 </html>
