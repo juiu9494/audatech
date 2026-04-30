@@ -7,85 +7,88 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Segoe UI', sans-serif; background: #f5f5f5; }
-        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
-        .back { margin-bottom: 20px; }
-        .back a { color: #007bff; text-decoration: none; font-size: 0.9rem; }
-        .back a:hover { text-decoration: underline; }
-        h1 { margin-bottom: 20px; }
-        .gallery { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
-        .gallery img { width: 150px; height: 150px; object-fit: cover; border-radius: 10px; }
-        .desc { background: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; line-height: 1.6; }
-        .contact-form { background: white; padding: 25px; border-radius: 10px; }
-        .contact-form h2 { margin-bottom: 20px; }
-        .form-group { margin-bottom: 15px; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
-        .form-group input, .form-group textarea {
-            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;
-            font-size: 1rem;
-        }
-        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
-        .btn {
-            display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px;
-            border: none; border-radius: 30px; font-weight: bold; cursor: pointer;
-            text-decoration: none; color: white; font-size: 1rem; transition: background 0.2s;
-        }
-        .btn-whatsapp { background: #25D366; }
-        .btn-whatsapp:hover { background: #1da851; }
-        .btn-email { background: #007bff; }
-        .btn-email:hover { background: #0056b3; }
+        body { font-family: 'Segoe UI', Roboto, system-ui, sans-serif; background: #f5f7fc; color: #1a1e2b; line-height: 1.5; }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 24px; }
+        .back { margin-bottom: 28px; }
+        .back a { color: #0077ff; text-decoration: none; font-size: 0.95rem; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: 0.2s; }
+        .back a:hover { color: #0056b3; text-decoration: underline; }
+        h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #0a2b4e, #0077ff); background-clip: text; -webkit-background-clip: text; color: transparent; margin-bottom: 24px; }
+        .gallery { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 32px; }
+        .gallery img { width: 150px; height: 150px; object-fit: cover; border-radius: 20px; background: #eef4ff; box-shadow: 0 4px 12px rgba(0,0,0,0.05); transition: transform 0.2s; }
+        .gallery img:hover { transform: scale(1.02); }
+        .desc { background: white; padding: 28px; border-radius: 24px; margin-bottom: 36px; box-shadow: 0 8px 20px rgba(0,0,0,0.03); border: 1px solid rgba(0,119,255,0.1); }
+        .desc p { margin-bottom: 12px; }
+        .contact-form { background: white; padding: 32px; border-radius: 28px; box-shadow: 0 12px 28px rgba(0,0,0,0.05); border: 1px solid #eef2ff; }
+        .contact-form h2 { font-size: 1.6rem; margin-bottom: 24px; color: #0f2b3d; }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e2f44; }
+        .form-group input, .form-group textarea { width: 100%; padding: 12px 16px; border: 1px solid #cfdfed; border-radius: 18px; font-size: 1rem; font-family: inherit; transition: 0.2s; background: #fefefe; }
+        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: #0077ff; box-shadow: 0 0 0 3px rgba(0,119,255,0.2); }
+        .btn-group { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 28px; }
+        .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 12px 28px; border: none; border-radius: 40px; font-weight: 600; font-size: 1rem; cursor: pointer; text-decoration: none; color: white; transition: all 0.2s ease; }
+        .btn-whatsapp { background: #25D366; box-shadow: 0 4px 8px rgba(37,211,102,0.2); }
+        .btn-whatsapp:hover { background: #1da851; transform: translateY(-2px); box-shadow: 0 10px 18px rgba(37,211,102,0.25); }
+        .btn-email { background: #0077ff; box-shadow: 0 4px 8px rgba(0,119,255,0.2); }
+        .btn-email:hover { background: #005fcc; transform: translateY(-2px); }
+        .info-note { font-size: 0.8rem; background: #eef4ff; padding: 10px 16px; border-radius: 60px; margin-top: 24px; text-align: center; color: #0050aa; }
+        @media (max-width: 640px) { .btn-group { flex-direction: column; } .btn { justify-content: center; } h1 { font-size: 1.6rem; } }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="back"><a href="./index.html"><i class="fas fa-arrow-left"></i> Torna ai servizi</a></div>
-        <h1>Riparazioni Elettroniche Generiche</h1>
+        <h1>🔧 Riparazioni Elettroniche Generiche</h1>
 
-        <!-- Sostituisci con foto reali -->
         <div class="gallery">
-            <img src="https://via.placeholder.com/150" alt="Riparazione schede">
-            <img src="https://via.placeholder.com/150" alt="Telecomandi">
-            <img src="https://via.placeholder.com/150" alt="Elettrodomestici">
-            <img src="https://via.placeholder.com/150" alt="TV e schermi">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Schede+elettroniche" alt="Riparazione schede">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Telecomandi" alt="Telecomandi">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=TV+monitor" alt="TV e schermi">
+            <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Elettrodomestici" alt="Piccoli elettrodomestici">
         </div>
 
         <div class="desc">
-            <p>Ripariamo un'ampia gamma di dispositivi elettronici: schede madri, alimentatori, telecomandi, piccoli elettrodomestici, radio, TV, monitor LCD/LED e molto altro.</p>
-            <p>Effettuiamo diagnosi approfondite, sostituzione componenti, saldature di precisione e collaudi finali. Portaci il tuo dispositivo guasto e ti forniremo un preventivo gratuito prima di qualsiasi intervento.</p>
+            <p><strong>🛠️ Ripariamo qualsiasi dispositivo elettronico</strong> – Schede madri, alimentatori, telecomandi, radio, amplificatori, TV LCD/LED, monitor, piccoli elettrodomestici (frullatori, aspirapolvere, rasoi elettrici), console da gioco e molto altro.</p>
+            <p><strong>🔬 Diagnostica professionale</strong> – Utilizziamo strumenti da banco (oscilloscopi, stazioni a saldare a aria calda, multimetri) per individuare e sostituire componenti SMD, condensatori, regolatori di tensione, connettori.</p>
+            <p><strong>💰 Preventivo gratuito e trasparente</strong> – Portaci il dispositivo o inviaci una descrizione dettagliata. Se la riparazione non è conveniente, ti verrà comunicato prima di procedere.</p>
+            <p>✔️ Riparazioni garantite 3 mesi | Ritiro e riconsegna a domicilio disponibile</p>
         </div>
 
         <div class="contact-form">
-            <h2>Descrivi il problema</h2>
+            <h2>✉️ Descrivi il problema</h2>
             <form id="contactForm">
                 <div class="form-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome" required>
+                    <label for="nome">Nome e cognome</label>
+                    <input type="text" id="nome" placeholder="Mario Rossi" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input type="email" id="email" required>
+                    <input type="email" id="email" placeholder="tuo@esempio.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="messaggio">Tipo di dispositivo e guasto riscontrato</label>
-                    <textarea id="messaggio" rows="4" required></textarea>
+                    <label for="messaggio">Tipo di dispositivo, marca/modello e guasto riscontrato</label>
+                    <textarea id="messaggio" rows="4" placeholder="Es: TV Samsung UE50RU7100 – non si accende, spia rossa lampeggia. / Telecomando Sky – alcuni tasti non funzionano." required></textarea>
                 </div>
 
                 <div class="btn-group">
                     <a href="#" class="btn btn-whatsapp" id="whatsappBtn" target="_blank">
-                        <i class="fab fa-whatsapp"></i> Invia su WhatsApp
+                        <i class="fab fa-whatsapp"></i> Contatta su WhatsApp
                     </a>
                     <a href="#" class="btn btn-email" id="emailBtn">
-                        <i class="fas fa-envelope"></i> Invia via Email
+                        <i class="fas fa-envelope"></i> Invia richiesta via Email
                     </a>
+                </div>
+                <div class="info-note">
+                    <i class="fas fa-info-circle"></i> Compila i campi: i pulsanti si aggiorneranno automaticamente con i tuoi dati.
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        // Sostituisci con il tuo numero WhatsApp (senza +, spazi o caratteri speciali)
-        const phoneNumber = '391234567890'; // es. 39 per Italia + numero
-        const emailAddress = 'info@audatech.it';
+        // ========== DATI DI CONTATTO REALI AUDATECH ==========
+        const WHATSAPP_NUMBER = '393478575458';   // Numero WhatsApp aziendale (senza +)
+        const EMAIL_ADDRESS = 'audatechitalia@gmail.com';
+        // ===================================================
 
         const form = document.getElementById('contactForm');
         const nomeInput = document.getElementById('nome');
@@ -94,21 +97,65 @@
         const whatsappBtn = document.getElementById('whatsappBtn');
         const emailBtn = document.getElementById('emailBtn');
 
-        function getFormMessage() {
-            return `Ciao, sono ${nomeInput.value} (${emailInput.value}). %0A%0A` +
-                   `*Servizio richiesto: Riparazione elettronica generica* %0A` +
-                   `Messaggio: ${encodeURIComponent(messaggioInput.value)}`;
+        function buildWhatsAppText() {
+            let nome = nomeInput.value.trim();
+            let email = emailInput.value.trim();
+            let messaggio = messaggioInput.value.trim();
+
+            if (!nome && !email && !messaggio) {
+                return "Salve, ho un dispositivo elettronico guasto (scheda, TV, elettrodomestico...). Potete darmi informazioni sulla riparazione?";
+            }
+
+            let intro = `*Richiesta da:* ${nome || '(Nome non inserito)'}`;
+            if (email) intro += `\n*Email:* ${email}`;
+            let corpo = `\n\n🔧 *Dispositivo e guasto:*\n${messaggio || '(Nessun dettaglio scritto)'}`;
+            let footer = "\n\n🛠️ *Servizio: Riparazione elettronica generica*";
+            return encodeURIComponent(intro + corpo + footer);
         }
 
-        form.addEventListener('input', () => {
-            const msg = getFormMessage();
-            whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${msg}`;
-            const subject = `Richiesta riparazione da ${nomeInput.value}`;
-            emailBtn.href = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(messaggioInput.value)}%0A%0AInviato da: ${nomeInput.value} (${emailInput.value})`;
+        function buildMailToLink() {
+            let nome = nomeInput.value.trim();
+            let email = emailInput.value.trim();
+            let messaggio = messaggioInput.value.trim();
+
+            let subject = `Richiesta riparazione elettronica - ${nome || 'Nuovo cliente'}`;
+            let body = `Ciao,\n\nVorrei richiedere un preventivo per la riparazione del seguente dispositivo:\n`;
+            body += `- Nome: ${nome || '(non indicato)'}\n`;
+            body += `- Email: ${email || '(non indicata)'}\n\n`;
+            body += `Descrizione del problema:\n${messaggio || '(nessuna descrizione inserita)'}\n\n`;
+            body += `--\nInviato dal modulo Riparazioni Elettroniche di Audatech`;
+            return `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        }
+
+        function updateLinks() {
+            whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppText()}`;
+            emailBtn.href = buildMailToLink();
+        }
+
+        form.addEventListener('input', updateLinks);
+        form.addEventListener('change', updateLinks);
+        window.addEventListener('DOMContentLoaded', updateLinks);
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert("Usa i pulsanti WhatsApp o Email per inviare la tua richiesta.");
         });
 
-        // Trigger iniziale
-        form.dispatchEvent(new Event('input'));
+        emailBtn.addEventListener('click', (e) => {
+            if (!emailInput.value.trim() || !nomeInput.value.trim()) {
+                if (!confirm("Non hai inserito nome o email. Il messaggio sarà anonimo. Vuoi continuare?")) {
+                    e.preventDefault();
+                }
+            }
+        });
+
+        whatsappBtn.addEventListener('click', (e) => {
+            if (!messaggioInput.value.trim() && !nomeInput.value.trim()) {
+                if (!confirm("Il messaggio WhatsApp non contiene dettagli. Inviare richiesta generica?")) {
+                    e.preventDefault();
+                }
+            }
+        });
     </script>
 </body>
 </html>
