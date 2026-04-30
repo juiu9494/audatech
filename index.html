@@ -378,22 +378,34 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 12px 0;   /* ridotto leggermente per bilanciare logo grande */
         }
         .logo {
             display: block;
             transition: transform 0.3s;
         }
+        /* LOGO GRANDISSIMO come richiesto */
         .logo img {
-            height: 65px;           /* Logo più grande */
+            height: 100px;         /* molto grande su desktop */
             width: auto;
             display: block;
+            max-width: 280px;
+            object-fit: contain;
         }
         @media (max-width: 768px) {
             .logo img {
-                height: 55px;       /* Leggermente ridotto su mobile */
+                height: 70px;       /* ancora grande su mobile */
+            }
+            .header-container {
+                padding: 8px 0;
             }
         }
+        @media (max-width: 480px) {
+            .logo img {
+                height: 65px;
+            }
+        }
+
         .nav-desktop {
             display: flex;
             list-style: none;
@@ -961,15 +973,13 @@
                 <div class="hero-slider" id="heroSlider">
                     <div class="slides">
                         <img src="img1.jpg" alt="Riparazione 1">
-                        <!-- Aggiungi altre img se vuoi più 😃😉😉 slide -->
+                        <!-- Aggiungi altre img se vuoi più slide -->
                     </div>
                     <div class="slide-nav" id="slideNav"></div>
                 </div>
             </div>
         </div>
     </section>
-
-    <!-- Servizi -->
 
     <!-- Punti di Forza -->
     <section class="punti-forza section-padding" id="punti-forza">
@@ -1021,9 +1031,6 @@
                 <div class="brand-item"><div class="brand-icon"><i class="fas fa-gamepad"></i></div><h4>Sony</h4></div>
             </div>
         </div>
-    </section>
-    </div>
-    </div>
     </section>
 
     <!-- Chi Siamo -->
@@ -1135,7 +1142,7 @@ Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la
                     <div class="footer-logo"><h3>Audatech Informatica</h3><span>Riparazioni Professionali</span></div>
                     <p>Ripariamo smartphone, tablet, PC e dispositivi elettronici con componenti di qualità e garanzia estesa.</p>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/audatech_marina?igsh=eDBsdjBocjh6OA== "><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/audatech_marina?igsh=eDBsdjBocjh6OA=="><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1260,6 +1267,7 @@ Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la
             const totalSlides = images.length;
             let currentIndex = 0;
             let interval;
+            if (totalSlides === 0) return;
             for (let i = 0; i < totalSlides; i++) {
                 const btn = document.createElement('button');
                 btn.addEventListener('click', () => goToSlide(i));
