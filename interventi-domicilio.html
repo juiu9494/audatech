@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interventi a domicilio / Remoto / Ritiro - Audatech</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #f5f5f5; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 20px; }
+        .back { margin-bottom: 20px; }
+        .back a { color: #007bff; text-decoration: none; font-size: 0.9rem; }
+        .back a:hover { text-decoration: underline; }
+        h1 { margin-bottom: 20px; }
+        .gallery { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+        .gallery img { width: 150px; height: 150px; object-fit: cover; border-radius: 10px; }
+        .desc { background: white; padding: 20px; border-radius: 10px; margin-bottom: 30px; line-height: 1.6; }
+        .contact-form { background: white; padding: 25px; border-radius: 10px; }
+        .contact-form h2 { margin-bottom: 20px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px;
+            font-size: 1rem;
+        }
+        .btn-group { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 20px; }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 12px 25px;
+            border: none; border-radius: 30px; font-weight: bold; cursor: pointer;
+            text-decoration: none; color: white; font-size: 1rem; transition: background 0.2s;
+        }
+        .btn-whatsapp { background: #25D366; }
+        .btn-whatsapp:hover { background: #1da851; }
+        .btn-email { background: #007bff; }
+        .btn-email:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="back"><a href="./index.html"><i class="fas fa-arrow-left"></i> Torna ai servizi</a></div>
+        <h1>Interventi a domicilio / Remoto / Ritiro</h1>
+
+        <!-- Sostituisci con foto reali -->
+        <div class="gallery">
+            <img src="https://via.placeholder.com/150" alt="Assistenza a domicilio">
+            <img src="https://via.placeholder.com/150" alt="Assistenza remota">
+            <img src="https://via.placeholder.com/150" alt="Ritiro dispositivo">
+        </div>
+
+        <div class="desc">
+            <p>Offriamo assistenza direttamente a casa tua, in ufficio o da remoto via TeamViewer/Anydesk.</p>
+            <p>– <strong>Intervento a domicilio</strong>: veniamo da te per riparazioni hardware, configurazioni, problemi di rete, installazioni.<br>
+            – <strong>Assistenza remota</strong>: risolviamo problemi software, virus, lentezze, backup e aggiornamenti collegandoci online.<br>
+            – <strong>Ritiro e consegna</strong>: se il dispositivo non può essere riparato sul posto, lo ritiriamo noi e te lo riportiamo funzionante.</p>
+            <p>Risparmia tempo e spostamenti, il nostro tecnico arriva dove sei tu. Preventivo gratuito e interventi senza sorprese.</p>
+        </div>
+
+        <div class="contact-form">
+            <h2>Richiedi un intervento</h2>
+            <form id="contactForm">
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="messaggio">Tipo di intervento e indirizzo (se domicilio)</label>
+                    <textarea id="messaggio" rows="4" required></textarea>
+                </div>
+
+                <div class="btn-group">
+                    <a href="#" class="btn btn-whatsapp" id="whatsappBtn" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Invia su WhatsApp
+                    </a>
+                    <a href="#" class="btn btn-email" id="emailBtn">
+                        <i class="fas fa-envelope"></i> Invia via Email
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Sostituisci con il tuo numero WhatsApp (senza +, spazi o caratteri speciali)
+        const phoneNumber = '391234567890'; // es. 39 per Italia + numero
+        const emailAddress = 'info@audatech.it';
+
+        const form = document.getElementById('contactForm');
+        const nomeInput = document.getElementById('nome');
+        const emailInput = document.getElementById('email');
+        const messaggioInput = document.getElementById('messaggio');
+        const whatsappBtn = document.getElementById('whatsappBtn');
+        const emailBtn = document.getElementById('emailBtn');
+
+        function getFormMessage() {
+            return `Ciao, sono ${nomeInput.value} (${emailInput.value}). %0A%0A` +
+                   `*Servizio richiesto: Intervento a domicilio / Remoto / Ritiro* %0A` +
+                   `Messaggio: ${encodeURIComponent(messaggioInput.value)}`;
+        }
+
+        form.addEventListener('input', () => {
+            const msg = getFormMessage();
+            whatsappBtn.href = `https://wa.me/${phoneNumber}?text=${msg}`;
+            const subject = `Richiesta intervento da ${nomeInput.value}`;
+            emailBtn.href = `mailto:${emailAddress}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(messaggioInput.value)}%0A%0AInviato da: ${nomeInput.value} (${emailInput.value})`;
+        });
+
+        // Trigger iniziale
+        form.dispatchEvent(new Event('input'));
+    </script>
+</body>
+</html>
