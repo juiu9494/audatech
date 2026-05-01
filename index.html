@@ -2,1304 +2,576 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Audatech Informatica | Riparazione Professionale Smartphone, Tablet e PC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Audatech · Sito in costruzione</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-
     <style>
-        :root {
-            --primary: #080d12;
-            --primary-dark: #003d82;
-            --primary-light: #e8f0fe;
-            --secondary: #ffffff;
-            --accent: #ff6b35;
-            --whatsapp: #25D366;
-            --whatsapp-dark: #1da851;
-            --text: #333333;
-            --text-light: #666666;
-            --light: #f8f9fa;
-            --dark: #212529;
-            --gray: #e9ecef;
-            --gray-dark: #dee2e6;
-            --shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
-            --shadow-lg: 0 10px 30px rgba(0, 0, 0, 0.1);
-            --radius: 6px;
-            --transition: all 0.3s ease;
-        }
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
             font-family: 'Inter', sans-serif;
-            color: var(--text);
-            line-height: 1.6;
-            font-weight: 400;
-            background-color: #fff;
-        }
-
-        h1, h2, h3, h4, h5 {
-            font-family: 'Roboto', sans-serif;
-            font-weight: 700;
-            line-height: 1.3;
-            color: var(--dark);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section-padding {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            margin-bottom: 60px;
-            text-align: center;
-        }
-
-        .section-title h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
+            background: linear-gradient(135deg, #0a2b4e 0%, #0056b3 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             position: relative;
-            display: inline-block;
+            overflow-x: hidden;
         }
 
-        .section-title h2::after {
-            content: '';
+        /* Particelle animate sfondo */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent);
+            background: rgba(255,255,255,0.15);
+            border-radius: 50%;
+            animation: floatParticle linear infinite;
         }
 
-        .section-title p {
-            max-width: 700px;
-            margin: 0 auto;
-            color: var(--text-light);
-            font-size: 1.1rem;
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(100vh) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.5;
+            }
+            100% {
+                transform: translateY(-20vh) scale(1);
+                opacity: 0;
+            }
         }
 
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: var(--radius);
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
+        /* Container principale */
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            margin: 40px 20px;
+            padding: 50px 40px;
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 48px;
+            backdrop-filter: blur(2px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
             text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
+        .container:hover {
+            transform: translateY(-8px);
         }
 
-        .btn-secondary {
-            background-color: #0056b3;
-            color: white;
+        /* Logo */
+        .logo {
+            margin-bottom: 20px;
         }
 
-        .btn-secondary:hover {
-            background-color: #003d82;
+        .logo img {
+            height: 100px;
+            width: auto;
+            filter: drop-shadow(0 4px 12px rgba(0,86,179,0.3));
+            transition: transform 0.2s;
         }
 
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
+        .logo img:hover {
+            transform: scale(1.02);
         }
 
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
+        /* Icona cantiere */
+        .construction-icon {
+            font-size: 4.5rem;
+            color: #ff6b35;
+            margin-bottom: 20px;
+            background: #fff0e8;
+            width: 120px;
+            height: 120px;
+            line-height: 120px;
+            border-radius: 60px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
         }
 
-        .btn-accent {
-            background-color: var(--accent);
+        h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #0a2b4e, #0056b3);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
-        .btn-accent:hover {
-            background-color: #e55a2b;
+        .subtitle {
+            font-size: 1.2rem;
+            color: #4a5568;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .btn-whatsapp {
-            background-color: #25D366;
-            color: white;
+        /* Countdown */
+        .countdown-container {
+            background: #f8fafc;
+            border-radius: 40px;
+            padding: 30px 20px;
+            margin: 30px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .countdown-title {
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: white;
+            border-radius: 24px;
+            padding: 15px 20px;
+            min-width: 100px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .countdown-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #0056b3;
+            line-height: 1;
+        }
+
+        .countdown-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748b;
+            margin-top: 8px;
+        }
+
+        /* Barra di avanzamento */
+        .progress-section {
+            margin: 30px 0;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #2d3748;
+        }
+
+        .progress-bar {
+            background: #e2e8f0;
+            border-radius: 60px;
+            height: 12px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: linear-gradient(90deg, #ff6b35, #0056b3);
+            width: 68%;
+            height: 100%;
+            border-radius: 60px;
+            animation: pulseGlow 2s infinite;
+        }
+
+        @keyframes pulseGlow {
+            0% { opacity: 0.8; }
+            50% { opacity: 1; }
+            100% { opacity: 0.8; }
+        }
+
+        /* Contatti e social */
+        .contact-info {
+            margin: 35px 0 25px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .contact-card {
+            background: #f1f5f9;
+            border-radius: 60px;
+            padding: 10px 24px;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            padding: 18px 38px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
             text-decoration: none;
-            border: none;
+            color: #1e293b;
+            font-weight: 500;
+            transition: all 0.2s;
+            border: 1px solid #e2e8f0;
         }
 
-        .btn-whatsapp:hover {
-            background-color: #1da851;
+        .contact-card i {
+            font-size: 1.2rem;
+            color: #0056b3;
+        }
+
+        .contact-card:hover {
+            background: #0056b3;
+            color: white;
             transform: translateY(-4px);
-            box-shadow: 0 14px 35px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 8px 18px rgba(0,86,179,0.3);
         }
 
-        .btn-whatsapp i {
-            font-size: 1.8rem;
+        .contact-card:hover i {
+            color: white;
         }
 
-        /* WHATSAPP FLOATING BUTTON (destra) */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            z-index: 9998;
+        .whatsapp-card:hover {
+            background: #25D366;
+            border-color: #25D366;
+        }
+
+        .social-links {
             display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 25px;
+        }
+
+        .social-icon {
+            width: 48px;
+            height: 48px;
+            background: #eef2ff;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #0056b3;
+            font-size: 1.4rem;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .social-icon:hover {
+            background: #0056b3;
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Newsletter / Notifica */
+        .newsletter {
+            margin-top: 35px;
+            padding-top: 25px;
+            border-top: 1px dashed #cbd5e1;
+        }
+
+        .newsletter h3 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            color: #0f172a;
+        }
+
+        .newsletter-form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 60px;
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            outline: none;
+            transition: 0.2s;
+        }
+
+        .newsletter-input:focus {
+            border-color: #0056b3;
+            box-shadow: 0 0 0 3px rgba(0,86,179,0.2);
+        }
+
+        .newsletter-btn {
+            background: #ff6b35;
+            color: white;
+            border: none;
+            padding: 14px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-flex;
             align-items: center;
             gap: 8px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .whatsapp-float:hover {
-            transform: translateY(-6px);
-        }
-        .whatsapp-float .whatsapp-badge {
-            background: white;
-            color: #333;
-            font-weight: 600;
-            font-size: 0.9rem;
-            padding: 10px 18px;
-            border-radius: 30px;
-            box-shadow: 0 4px 18px rgba(0,0,0,0.15);
-            white-space: nowrap;
-            opacity: 0;
-            transform: translateX(20px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
-            pointer-events: none;
-        }
-        .whatsapp-float:hover .whatsapp-badge {
-            opacity: 1;
-            transform: translateX(0);
-        }
-        .whatsapp-float .whatsapp-circle {
-            width: 62px;
-            height: 62px;
-            background: #25D366;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            box-shadow: 0 6px 24px rgba(37,211,102,0.45);
-            transition: background 0.3s ease, transform 0.3s ease;
-            position: relative;
-            animation: whatsappBounce 2.5s ease-in-out infinite;
-        }
-        .whatsapp-float:hover .whatsapp-circle {
-            background: #1da851;
-            animation: none;
-            transform: scale(1.08);
-        }
-        .whatsapp-circle::after {
-            content: '';
-            position: absolute;
-            inset: -6px;
-            border-radius: 50%;
-            border: 3px solid rgba(37,211,102,0.35);
-            animation: whatsappRing 2.5s ease-in-out infinite;
-        }
-        @keyframes whatsappBounce {
-            0%,100%{transform:translateY(0);}
-            20%{transform:translateY(-8px);}
-            40%{transform:translateY(0);}
-            60%{transform:translateY(-5px);}
-            80%{transform:translateY(0);}
-        }
-        @keyframes whatsappRing {
-            0%,100%{transform:scale(1);opacity:0.5;}
-            50%{transform:scale(1.25);opacity:0;}
         }
 
-        /* SLIDER HERO */
-        .hero-slider {
-            position: relative;
-            width: 100%;
-            height: 350px;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-        @media (max-width: 768px) {
-            .hero-slider {
-                height: 250px;
-            }
-        }
-        .hero-slider .slides {
-             display: flex;
-             transition: transform 0.5s ease;
-             height: 100%;
-        }
-        .hero-slider .slides img {
-            min-width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .hero-slider .slide-nav {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 10px;
-            z-index: 3;
-        }
-        .hero-slider .slide-nav button {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            border: none;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        .hero-slider .slide-nav button.active {
-            background: var(--accent);
+        .newsletter-btn:hover {
+            background: #e55a2b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 14px rgba(255,107,53,0.3);
         }
 
-        /* SPLASH SCREEN */
-        #splashScreen {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: #ffffff;
-            z-index: 99999;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            transition: opacity 0.8s ease, visibility 0.8s ease;
-            opacity: 1;
-            visibility: visible;
-            perspective: 1000px;
-        }
-        #splashScreen.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
-        }
-        .splash-logo-3d {
-            width: 180px;
-            height: 180px;
-            margin-bottom: 20px;
-            animation: rotate3d 2s cubic-bezier(0.68,-0.55,0.27,1.55) infinite, glowPulse 1.5s ease-in-out infinite alternate;
-            transform-style: preserve-3d;
-        }
-        .splash-logo-3d img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 15px rgba(0,86,179,0.6));
-            backface-visibility: hidden;
-        }
-        @keyframes rotate3d {
-            0%{transform:rotateY(0deg) rotateX(0deg);}
-            25%{transform:rotateY(10deg) rotateX(5deg);}
-            50%{transform:rotateY(0deg) rotateX(0deg);}
-            75%{transform:rotateY(-10deg) rotateX(-5deg);}
-            100%{transform:rotateY(0deg) rotateX(0deg);}
-        }
-        @keyframes glowPulse {
-            from{filter:drop-shadow(0 0 10px #00a8ff);}
-            to{filter:drop-shadow(0 0 25px #0056b3);}
-        }
-        .splash-particles {
-            position: absolute;
-            width: 100%; height: 100%;
-            pointer-events: none;
-        }
-        .particle {
-            position: absolute;
-            width: 6px; height: 6px;
-            background: #0056b3;
-            border-radius: 50%;
-            animation: floatParticle 2s linear infinite;
-            opacity: 0;
-        }
-        @keyframes floatParticle {
-            0%{transform:translateY(0) scale(1); opacity:0.8;}
-            100%{transform:translateY(-100vh) scale(0); opacity:0;}
-        }
-        .splash-tagline {
-            font-size: 1.2rem;
-            color: #0056b3;
-            font-weight: 500;
-            letter-spacing: 2px;
-            animation: fadeInUp 1s ease;
-        }
-        @keyframes fadeInUp {
-            from{opacity:0; transform:translateY(20px);}
-            to{opacity:1; transform:translateY(0);}
+        .newsletter-message {
+            margin-top: 15px;
+            font-size: 0.85rem;
+            color: #2d6a4f;
         }
 
-        /* Header */
-        header {
-            background-color: white;
-            position: fixed;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            border-bottom: 1px solid var(--gray);
-        }
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 12px 0;   /* ridotto leggermente per bilanciare logo grande */
-        }
-        .logo {
-            display: block;
-            transition: transform 0.3s;
-        }
-        /* LOGO GRANDISSIMO come richiesto */
-        .logo img {
-            height: 100px;         /* molto grande su desktop */
-            width: auto;
-            display: block;
-            max-width: 280px;
-            object-fit: contain;
-        }
-        @media (max-width: 768px) {
-            .logo img {
-                height: 70px;       /* ancora grande su mobile */
-            }
-            .header-container {
-                padding: 8px 0;
-            }
-        }
-        @media (max-width: 480px) {
-            .logo img {
-                height: 65px;
-            }
-        }
-
-        .nav-desktop {
-            display: flex;
-            list-style: none;
-        }
-        .nav-desktop li {
-            margin-left: 35px;
-        }
-        .nav-desktop a {
-            text-decoration: none;
-            color: var(--text);
-            font-weight: 500;
-            font-size: 1rem;
-            transition: color 0.3s;
-            position: relative;
-        }
-        .nav-desktop a:hover {
-            color: var(--primary);
-        }
-        .nav-desktop a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px; left: 0;
-            width: 0;
-            height: 2px;
-            background-color: #0056b3;
-            transition: width 0.3s;
-        }
-        .nav-desktop a:hover::after {
-            width: 100%;
-        }
-        .nav-cta {
-            background-color: var(--accent);
-            color: white;
-            padding: 10px 24px;
-            border-radius: var(--radius);
-            transition: var(--transition);
-        }
-        .nav-cta:hover {
-            background-color: #e55a2b;
-            color: white;
-        }
-        .mobile-toggle {
-            display: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: var(--primary);
-        }
-
-        /* Hero */
-        .hero {
-            padding-top: 160px;
-            padding-bottom: 100px;
-            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="%230056b3" opacity="0.1"/></svg>');
-            background-color: #1a1a1a;
-            background-size: cover;
-            color: white;
-            position: relative;
-        }
-        .hero-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        .hero-content h1 {
-            font-size: 3.2rem;
-            margin-bottom: 20px;
-            line-height: 1.2;
-            color: white;
-        }
-        .hero-content p {
-            font-size: 1.2rem;
-            color: rgba(255,255,255,0.9);
-            margin-bottom: 35px;
-            max-width: 500px;
-        }
-        .hero-buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-        }
-        .hero-features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 25px;
+        /* Footer note */
+        .footer-note {
             margin-top: 40px;
-        }
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .hero-feature i {
-            color: #00a8ff;
-            font-size: 1.5rem;
-        }
-        .hero-feature span {
-            font-size: 1rem;
-            color: white;
-        }
-        .hero-image {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        /* Services */
-        .services {
-            background-color: var(--light);
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
-            background-color: white;
-            border-radius: var(--radius);
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            border-top: 4px solid transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-top: 4px solid #0056b3;
-        }
-        .service-icon {
-            width: 80px; height: 80px;
-            background-color: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            color: var(--primary);
-            font-size: 2rem;
-        }
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        .service-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-        .service-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        .service-price span {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        /* Punti di Forza */
-        .punti-forza { background-color: white; }
-        .punti-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-top: 50px;
-        }
-        .punto-item { text-align: center; padding: 30px 20px; }
-        .punto-icon { font-size: 3rem; color: var(--accent); margin-bottom: 20px; }
-        .punto-item h4 { font-size: 1.5rem; margin-bottom: 15px; }
-
-        /* Brands */
-        .brands { background-color: var(--light); }
-        .brands-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 30px;
-            align-items: center;
-        }
-        .brand-item {
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            text-align: center;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        .brand-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-        .brand-icon { font-size: 3rem; color: var(--text-light); margin-bottom: 15px; }
-        .brand-item h4 { font-size: 1.2rem; color: var(--dark); }
-
-        /* Repair Types */
-        .repair-types { background-color: white; }
-        .repair-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .repair-type {
-            background-color: var(--light);
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-        .repair-type:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        .repair-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        .repair-header i { font-size: 3rem; margin-bottom: 15px; }
-        .repair-header h3 { font-size: 1.5rem; color: white; }
-        .repair-list { padding: 30px; }
-        .repair-list ul { list-style: none; }
-        .repair-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--gray-dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .repair-list li:last-child { border-bottom: none; }
-        .repair-price {
-            background-color: #0056b3;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
-
-        /* About */
-        .about { background-color: var(--light); }
-        .about-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        .about-image {
-            position: relative;
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            background: linear-gradient(45deg, #0056b3, #00a8ff);
-            height: 550px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-        }
-        .about-badge {
-            position: absolute;
-            top: 20px; right: 20px;
-            background-color: var(--accent);
-            color: white;
-            padding: 10px 20px;
-            border-radius: var(--radius);
-            font-weight: 600;
-            box-shadow: var(--shadow);
-        }
-        .about-content h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .about-content p { margin-bottom: 25px; color: var(--text-light); }
-        .about-features { margin-top: 40px; }
-        .about-feature { display: flex; align-items: flex-start; margin-bottom: 25px; }
-        .feature-icon {
-            width: 50px; height: 50px;
-            background-color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 20px;
-            color: var(--primary);
-            flex-shrink: 0;
-            box-shadow: var(--shadow);
-        }
-        .feature-content h4 { font-size: 1.2rem; margin-bottom: 5px; }
-
-        /* Testimonials */
-        .testimonials { background-color: white; }
-        .testimonials-slider { max-width: 800px; margin: 0 auto; }
-        .testimonial {
-            background-color: var(--light);
-            border-radius: var(--radius);
-            padding: 40px;
-            box-shadow: var(--shadow);
-            margin: 20px;
-            position: relative;
-        }
-        .testimonial::before {
-            content: '"';
-            position: absolute;
-            top: 20px; left: 20px;
-            font-size: 4rem;
-            color: #0056b3;
-            opacity: 0.3;
-            font-family: serif;
-        }
-        .testimonial p {
-            font-style: italic;
-            color: var(--text);
-            margin-bottom: 25px;
-            font-size: 1.1rem;
-        }
-        .testimonial-author { display: flex; align-items: center; }
-        .author-avatar {
-            width: 60px; height: 60px;
-            border-radius: 50%;
-            background-color: var(--gray);
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-        .author-info h4 { font-size: 1.2rem; margin-bottom: 5px; }
-        .author-info p { font-style: normal; font-size: 0.9rem; color: var(--text-light); margin: 0; }
-
-        /* Contact */
-        .contact { background-color: var(--light); }
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr;
-            max-width: 700px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .contact-info h2 { font-size: 2.5rem; margin-bottom: 20px; }
-        .contact-info p { color: var(--text-light); margin-bottom: 30px; }
-        .contact-details {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-            margin: 50px 0;
-        }
-        .contact-item {
-            background: white;
-            padding: 25px 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            min-width: 200px;
-            text-align: center;
-        }
-        .contact-icon { font-size: 2rem; color: var(--primary); margin-bottom: 15px; }
-        .contact-content h4 { font-size: 1.2rem; margin-bottom: 5px; }
-        .contact-content p { color: var(--text-light); margin: 0; }
-        .whatsapp-highlight { margin-top: 20px; }
-
-        /* Mappa */
-        .map-section { padding: 80px 0; background: white; }
-        .map-container {
-            border-radius: var(--radius);
-            overflow: hidden;
-            box-shadow: var(--shadow-lg);
-        }
-        .map-container iframe { width: 100%; height: 450px; border: 0; }
-
-        /* Footer */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 80px 0 30px;
-        }
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            color: white;
-            position: relative;
-            padding-bottom: 10px;
-        }
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0; left: 0;
-            width: 40px;
-            height: 2px;
-            background-color: #0056b3;
-        }
-        .footer-logo { display: flex; flex-direction: column; margin-bottom: 20px; }
-        .footer-logo h3 { font-size: 1.8rem; margin-bottom: 5px; }
-        .footer-logo span { font-size: 0.9rem; color: #adb5bd; letter-spacing: 1px; }
-        .footer-col p { color: #adb5bd; margin-bottom: 25px; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 12px; }
-        .footer-links a { color: #adb5bd; text-decoration: none; transition: color 0.3s; }
-        .footer-links a:hover { color: white; }
-        .social-links { display: flex; gap: 15px; margin-top: 20px; }
-        .social-links a {
-            width: 40px; height: 40px;
-            background-color: #343a40;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        .social-links a:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px);
-        }
-        .copyright {
-            text-align: center;
-            padding-top: 30px;
-            border-top: 1px solid #343a40;
-            color: #adb5bd;
-            font-size: 0.9rem;
+            font-size: 0.75rem;
+            color: #94a3b8;
         }
 
         /* Responsive */
-        @media (max-width: 1100px) {
-            .hero-container, .about-container {
-                grid-template-columns: 1fr;
-                gap: 60px;
+        @media (max-width: 640px) {
+            .container {
+                padding: 35px 20px;
             }
-            .hero-content h1 { font-size: 2.8rem; }
-            .hero-image { order: -1; }
-        }
-        @media (max-width: 768px) {
-            .hero {
-                padding-top: 140px;
-                padding-bottom: 80px;
+            h1 {
+                font-size: 1.8rem;
             }
-            .hero-content h1 {
+            .construction-icon {
+                width: 90px;
+                height: 90px;
+                line-height: 90px;
+                font-size: 3rem;
+            }
+            .countdown-item {
+                min-width: 70px;
+                padding: 10px 12px;
+            }
+            .countdown-number {
                 font-size: 2rem;
             }
-            .hero-content p {
-                font-size: 1rem;
+            .logo img {
+                height: 70px;
             }
-            .nav-desktop {
-                display: none;
-                position: absolute;
-                top: 100%; left: 0;
-                width: 100%;
-                background-color: white;
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: var(--shadow);
-                z-index: 999;
-            }
-            .nav-desktop.active { display: flex; }
-            .nav-desktop li { margin: 0 0 15px 0; }
-            .mobile-toggle { display: block; }
-            .hero-features {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-            .section-padding {
-                padding: 70px 0;
-            }
-            .repair-container {
-                grid-template-columns: 1fr;
-            }
-            .whatsapp-float {
-                bottom: 20px;
-                right: 15px;
-            }
-            .whatsapp-float .whatsapp-circle {
-                width: 50px;
-                height: 50px;
-                font-size: 1.4rem;
-            }
-            .btn-whatsapp {
-                padding: 14px 28px;
-                font-size: 1rem;
-            }
-            .btn-whatsapp i {
-                font-size: 1.4rem;
+            .contact-card {
+                padding: 8px 18px;
+                font-size: 0.85rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- SPLASH SCREEN -->
-    <div id="splashScreen">
-        <div class="splash-logo-3d">
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <!-- Logo -->
+        <div class="logo">
             <img src="logo.png" alt="Audatech Informatica">
         </div>
-        <div class="splash-tagline">Innovazione e riparazione</div>
-        <div class="splash-particles" id="particles"></div>
+
+        <!-- Icona cantiere -->
+        <div class="construction-icon">
+            <i class="fas fa-hard-hat"></i>
+        </div>
+
+        <h1>✨ Sito in Costruzione ✨</h1>
+        <p class="subtitle">
+            Stiamo lavorando a una versione completamente rinnovata del sito Audatech.<br>
+            Presto arriveranno nuovi servizi, offerte e un'esperienza ancora più veloce.
+        </p>
+
+        <!-- Countdown per il lancio -->
+        <div class="countdown-container">
+            <div class="countdown-title">
+                <i class="fas fa-rocket" style="margin-right: 8px; color: #ff6b35;"></i> 
+                Lancio previsto tra:
+            </div>
+            <div class="countdown" id="countdown">
+                <div class="countdown-item">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Giorni</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Ore</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minuti</div>
+                </div>
+                <div class="countdown-item">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Secondi</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Barra di avanzamento lavori -->
+        <div class="progress-section">
+            <div class="progress-label">
+                <span><i class="fas fa-code"></i> Sviluppo e design</span>
+                <span>68% completato</span>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" style="width: 68%;"></div>
+            </div>
+        </div>
+
+        <!-- Contatti rapidi -->
+        <div class="contact-info">
+            <a href="tel:+393478575458" class="contact-card">
+                <i class="fas fa-phone-alt"></i> +39 347 857 5458
+            </a>
+            <a href="mailto:audatechitalia@gmail.com" class="contact-card">
+                <i class="fas fa-envelope"></i> audatechitalia@gmail.com
+            </a>
+            <a href="https://wa.me/393478575458?text=Salve%2C%20volevo%20informazioni%20sul%20vostro%20sito%20in%20costruzione" 
+               class="contact-card whatsapp-card" target="_blank">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+        </div>
+
+        <!-- Social -->
+        <div class="social-links">
+            <a href="https://www.instagram.com/audatech_marina" class="social-icon" target="_blank">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-icon" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+
+        <!-- Notifica via email (solo simulazione frontend) -->
+        <div class="newsletter">
+            <h3><i class="fas fa-bell"></i> Avvisami quando il sito è pronto</h3>
+            <div class="newsletter-form">
+                <input type="email" class="newsletter-input" id="notifyEmail" placeholder="Inserisci la tua email" required>
+                <button class="newsletter-btn" id="notifyBtn">
+                    <i class="fas fa-paper-plane"></i> Avvisami
+                </button>
+            </div>
+            <div class="newsletter-message" id="notifyMessage"></div>
+        </div>
+
+        <div class="footer-note">
+            <i class="fas fa-tools"></i> Audatech Informatica · Riparazioni e assistenza tecnica · Presto online con tante novità!
+        </div>
     </div>
 
-    <!-- WHATSAPP FLOATING BUTTON (unico bottone flottante) -->
-    <a href="https://wa.me/393478575458?text=Salve%2C%20vorrei%20richiedere%20informazioni%20per%20una%20riparazione"
-       class="whatsapp-float"
-       target="_blank" rel="noopener noreferrer"
-       aria-label="Contattaci su WhatsApp">
-        <span class="whatsapp-badge">Chatta con noi!</span>
-        <span class="whatsapp-circle">
-            <i class="fab fa-whatsapp"></i>
-        </span>
-    </a>
-
-    <!-- Header -->
-    <header>
-        <div class="container header-container">
-            <a href="#" class="logo">
-                <img src="logo.png" alt="Audatech Informatica">
-            </a>
-            <div class="mobile-toggle" id="mobileToggle">
-                <i class="fas fa-bars"></i>
-            </div>
-            <ul class="nav-desktop" id="navDesktop">
-                <li><a href="#home">Home</a></li>
-                <li><a href="servizi.html">Servizi</a></li>
-                <li><a href="#punti-forza">Punti di Forza</a></li>
-                <li><a href="#chi-siamo">Chi Siamo</a></li>
-                <li><a href="#contatti" class="nav-cta">Contattaci</a></li>
-            </ul>
-        </div>
-    </header>
-
-    <!-- HERO -->
-    <section class="hero" id="home">
-        <div class="container hero-container">
-            <div class="hero-content">
-                <h1>Riparazioni Tecnologiche Professionali e Rapide</h1>
-                <p>Ripariamo smartphone, tablet, PC, stampanti 3D e altri dispositivi elettronici con componenti originali e garanzia estesa. Servizio rapido e conveniente con ritiro e consegna a domicilio.</p>
-                <div class="hero-buttons">
-                    <a href="servizi.html" class="btn btn-accent">Scopri i Servizi</a>
-                    <a href="https://wa.me/393478575458?text=Salve%2C%20vorrei%20richiedere%20una%20riparazione"
-                       class="btn btn-outline"
-                       style="color: white; border-color: #25D366; background-color: #25D366;"
-                       target="_blank">
-                        <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> WhatsApp
-                    </a>
-                </div>
-                <div class="hero-features">
-                    <div class="hero-feature"><i class="fas fa-clock"></i><span>Riparazioni in 24-48 ore</span></div>
-                    <div class="hero-feature"><i class="fas fa-shield-alt"></i><span>Garanzia 12 mesi</span></div>
-                    <div class="hero-feature"><i class="fas fa-home"></i><span>Ritiro e consegna a domicilio</span></div>
-                    <div class="hero-feature"><i class="fas fa-euro-sign"></i><span>Prezzi trasparenti</span></div>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="hero-slider" id="heroSlider">
-                    <div class="slides">
-                        <img src="img1.jpg" alt="Riparazione 1">
-                        <!-- Aggiungi altre img se vuoi più slide -->
-                    </div>
-                    <div class="slide-nav" id="slideNav"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Punti di Forza -->
-    <section class="punti-forza section-padding" id="punti-forza">
-        <div class="container">
-            <div class="section-title">
-                <h2>Perché Scegliere Audatech?</h2>
-                <p>Competenza, rapidità e trasparenza: i pilastri del nostro servizio.</p>
-            </div>
-            <div class="punti-grid">
-                <div class="punto-item">
-                    <div class="punto-icon"><i class="fas fa-user-cog"></i></div>
-                    <h4>Tecnici Certificati</h4>
-                    <p>Team specializzato e costantemente aggiornato sulle ultime tecnologie.</p>
-                </div>
-                <div class="punto-item">
-                    <div class="punto-icon"><i class="fas fa-shipping-fast"></i></div>
-                    <h4>Rapidità di Intervento</h4>
-                    <p>Riparazioni espresse in 24/48 ore senza compromettere la qualità.</p>
-                </div>
-                <div class="punto-item">
-                    <div class="punto-icon"><i class="fas fa-certificate"></i></div>
-                    <h4>Ricambi Originali</h4>
-                    <p>Utilizziamo solo componenti originali o di primissima qualità, garantiti.</p>
-                </div>
-                <div class="punto-item">
-                    <div class="punto-icon"><i class="fas fa-hand-holding-heart"></i></div>
-                    <h4>Assistenza Domiciliare</h4>
-                    <p>Ritiro e consegna direttamente a casa tua, senza spostamenti.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Brands -->
-    <section class="brands section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>Marchi Riparati</h2>
-                <p>Ripariamo dispositivi di tutti i principali marchi con componenti compatibili e di qualità.</p>
-            </div>
-            <div class="brands-grid">
-                <div class="brand-item"><div class="brand-icon"><i class="fab fa-apple"></i></div><h4>Apple</h4></div>
-                <div class="brand-item"><div class="brand-icon"><i class="fab fa-android"></i></div><h4>Samsung</h4></div>
-                <div class="brand-item"><div class="brand-icon"><i class="fas fa-mobile-alt"></i></div><h4>Huawei</h4></div>
-                <div class="brand-item"><div class="brand-icon"><i class="fas fa-mobile-alt"></i></div><h4>Xiaomi</h4></div>
-                <div class="brand-item"><div class="brand-icon"><i class="fas fa-laptop"></i></div><h4>Dell</h4></div>
-                <div class="brand-item"><div class="brand-icon"><i class="fas fa-laptop"></i></div><h4>HP</h4></div>
-                <div class="brand-item"><div class="brand-icon"><i class="fas fa-laptop"></i></div><h4>Lenovo</h4></div>
-                <div class="brand-item"><div class="brand-icon"><i class="fas fa-gamepad"></i></div><h4>Sony</h4></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Chi Siamo -->
-    <section class="about section-padding" id="chi-siamo">
-        <div class="container about-container">
-            <div class="about-image">
-                <div style="text-align: center; padding: 30px;">
-                    <i class="fas fa-users" style="font-size: 8rem; opacity: 0.9;"></i>
-                    <h3 style="margin-top: 20px; font-size: 1.8rem; font-weight: 600;">Team di Esperti</h3>
-                </div>
-                <div class="about-badge"><span>+10 Anni Esperienza</span></div>
-            </div>
-            <div class="about-content">
-                <h2>Audatech Informatica: Professionalità e Affidabilità</h2>
-                <p>Fondata nel 2013, Audatech Informatica è diventata un punto di riferimento per le riparazioni tecnologiche nella zona. Ci distinguiamo per la competenza tecnica, l'uso di componenti di qualità e un servizio clienti eccellente.</p>
-                <p>Il nostro team di tecnici specializzati si aggiorna costantemente sulle nuove tecnologie per offrire riparazioni efficienti e durature su qualsiasi dispositivo.</p>
-                <div class="about-features">
-                    <div class="about-feature"><div class="feature-icon"><i class="fas fa-certificate"></i></div><div class="feature-content"><h4>Componenti di Qualità</h4><p>Utilizziamo solo componenti originali o di qualità equivalente, garantiti e testati.</p></div></div>
-                    <div class="about-feature"><div class="feature-icon"><i class="fas fa-user-shield"></i></div><div class="feature-content"><h4>Garanzia Estesa</h4><p>Offriamo fino a 12 mesi di garanzia su tutte le riparazioni effettuate.</p></div></div>
-                    <div class="about-feature"><div class="feature-icon"><i class="fas fa-truck"></i></div><div class="feature-content"><h4>Servizio a Domicilio</h4><p>Ritiro e consegna a domicilio in tutta la città per tua comodità.</p></div></div>
-                    <div class="about-feature"><div class="feature-icon"><i class="fas fa-lock"></i></div><div class="feature-content"><h4>Privacy Garantita</h4><p>Tutti i dati personali vengono protetti e mai utilizzati per altri scopi.</p></div></div>
-                </div>
-                <a href="#contatti" class="btn btn-secondary" style="margin-top: 20px;">Contattaci Ora</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>Cosa Dicono i Nostri Clienti</h2>
-                <p>La soddisfazione dei nostri clienti è la nostra migliore pubblicità.</p>
-            </div>
-            <div class="testimonials-slider">
-                <div class="testimonial">
-                    <p>Il mio telefono pareva rotto dopo una caduta. Samsung voleva 150€ e settimane per ripararlo. Invece in pochi minuti è stato riparato davanti ai miei occhi. Mi ha pure reincollato meglio il fondo del telefono ed ha chiesto pochissimo. Grazie</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"><i class="fas fa-user"></i></div>
-                        <div class="author-info"><h4>Guido Brunelli</h4><p>Montemarciano</p></div>
-                    </div>
-                </div>
-            </div>
-             <div class="testimonials-slider">
-                <div class="testimonial">
-                    <p>Sono felice di condividere la mia esperienza presso audatech. La bravura del titolare è davvero impressionante. Ha risolto il problema del mio smartphone in un batter d'occhio, dimostrando una competenza straordinaria. Inoltre, la sua disponibilità è senza pari. Ha risposto prontamente alle mie domande e ha fatto di tutto per soddisfare le mie esigenze. Consiglio vivamente questo centro a chiunque abbia bisogno di riparazioni tecniche. Il titolare è una risorsa preziosa per la comunità locale.</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"><i class="fas fa-user"></i></div>
-                        <div class="author-info"><h4> Mike </h4><p>Montemarciano</p></div>
-                    </div>
-                </div>
-            </div>
-             <div class="testimonials-slider">
-                <div class="testimonial">
-                    <p>Ottimo centro di riparazioni,mi sono trovata benissimo, Mirko è davvero molto gentile,competente e professionale.
-Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la vacanza recuperando le foto nonostante non avessi nessun tipo di salvataggio o cestino dati. Consigliatissimo!!!</p>
-                    <div class="testimonial-author">
-                        <div class="author-avatar"><i class="fas fa-user"></i></div>
-                        <div class="author-info"><h4> Giulia Tassinari </h4><p>Montemarciano</p></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contatti -->
-    <section class="contact section-padding" id="contatti">
-        <div class="container contact-container">
-            <div class="contact-info">
-                <h2>Contattaci subito</h2>
-                <p>Scrivici su WhatsApp per un preventivo immediato. Rispondiamo in pochi minuti!</p>
-                <div class="contact-details">
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div><div class="contact-content"><h4>Laboratorio</h4><p>Via Adriatica, 17<br>60018 Montemarciano AN</p></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-phone-alt"></i></div><div class="contact-content"><h4>Telefono</h4><p>+39 3478575458</p></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-envelope"></i></div><div class="contact-content"><h4>Email</h4><p>audatechitalia@gmail.com</p></div></div>
-                    <div class="contact-item"><div class="contact-icon"><i class="fas fa-clock"></i></div><div class="contact-content"><h4>Orari</h4><p>Lun-Ven 9-19, Sab 9-13</p></div></div>
-                </div>
-                <div class="whatsapp-highlight">
-                    <a href="https://wa.me/393478575458?text=Ciao%20Audatech%2C%20vorrei%20un%20preventivo%20per%20una%20riparazione"
-                       class="btn-whatsapp"
-                       target="_blank">
-                        <i class="fab fa-whatsapp"></i> Scrivici su WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mappa Google -->
-    <section class="map-section">
-        <div class="container">
-            <div class="section-title">
-                <h2>Dove Siamo</h2>
-                <p>Via Adriatica, 17, 60018 Montemarciano AN</p>
-            </div>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11604.63123456789!2d13.345678!3d43.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbf123456789%3A0x123456789abcdef!2sVia%20Adriatica%2C%2017%2C%2060018%20Montemarciano%20AN!5e0!3m2!1sit!2sit!4v1717000000000"
-                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-                        title="Mappa Audatech Informatica"></iframe>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="footer-logo"><h3>Audatech Informatica</h3><span>Riparazioni Professionali</span></div>
-                    <p>Ripariamo smartphone, tablet, PC e dispositivi elettronici con componenti di qualità e garanzia estesa.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/audatech_marina?igsh=eDBsdjBocjh6OA=="><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Link Utili</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#servizi">Servizi</a></li>
-                        <li><a href="#punti-forza">Punti di Forza</a></li>
-                        <li><a href="#riparazioni">Prezzi Riparazioni</a></li>
-                        <li><a href="#chi-siamo">Chi Siamo</a></li>
-                        <li><a href="#contatti">Contatti</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Servizi</h3>
-                    <ul class="footer-links">
-                        <li><a href="servizi.html">Riparazione Smartphone</a></li>
-                        <li><a href="servizi.html">Riparazione PC & Laptop</a></li>
-                        <li><a href="servizi.html">Stampa 3D Personalizzata</a></li>
-                        <li><a href="servizi.html">Riparazione a Domicilio</a></li>
-                        <li><a href="servizi.html">Recupero Dati</a></li>
-                        <li><a href="servizi.html">Assistenza da Remoto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contatti</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Via Adriatica, 17, 60018 Montemarciano AN</li>
-                        <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> +39 3478575458</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> audatechitalia@gmail.com</li>
-                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i>Giovedì 9:15–18:30 Venerdì 09:15–18:30. Sabato chiuso Domenica Chiusa Lunedì 9:15–12:30 Martedì 9:15–18:30 Mercoledì 09:15–18:30</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2026 Audatech Informatica. Tutti i diritti riservati. | P.IVA 02823020421</p>
-            </div>
-        </div>
-    </footer>
-
     <script>
-        // Splash Screen con particelle dinamiche
-        (function() {
-            const splash = document.getElementById('splashScreen');
+        // Countdown per una data di lancio stimata (es. tra 15 giorni)
+        function getNextLaunchDate() {
+            let target = new Date();
+            target.setDate(target.getDate() + 14);  // +14 giorni
+            target.setHours(20, 0, 0, 0); // ore 20:00
+            return target;
+        }
+
+        const launchDate = getNextLaunchDate();
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            if (distance < 0) {
+                // Se la data è passata, resetta a +14 giorni da oggi
+                const newLaunch = new Date();
+                newLaunch.setDate(newLaunch.getDate() + 14);
+                newLaunch.setHours(20, 0, 0, 0);
+                launchDate.setTime(newLaunch.getTime());
+                return updateCountdown();
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = days < 10 ? '0' + days : days;
+            document.getElementById('hours').innerText = hours < 10 ? '0' + hours : hours;
+            document.getElementById('minutes').innerText = minutes < 10 ? '0' + minutes : minutes;
+            document.getElementById('seconds').innerText = seconds < 10 ? '0' + seconds : seconds;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+
+        // Generazione particelle dinamiche
+        function createParticles() {
             const particlesContainer = document.getElementById('particles');
-            for (let i = 0; i < 30; i++) {
+            const particleCount = 60;
+            for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
-                particle.className = 'particle';
+                particle.classList.add('particle');
+                const size = Math.random() * 8 + 3;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
                 particle.style.left = Math.random() * 100 + '%';
-                particle.style.animationDelay = Math.random() * 2 + 's';
-                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particle.style.animationDuration = Math.random() * 15 + 8 + 's';
+                particle.style.animationDelay = Math.random() * 10 + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.2;
                 particlesContainer.appendChild(particle);
             }
-            const hideSplash = function() {
-                if (splash && !splash.classList.contains('hidden')) {
-                    splash.classList.add('hidden');
-                    setTimeout(function() {
-                        if (splash.parentNode) splash.parentNode.removeChild(splash);
-                    }, 800);
+        }
+        createParticles();
+
+        // Notifica email (simulazione senza backend)
+        const notifyBtn = document.getElementById('notifyBtn');
+        const notifyEmail = document.getElementById('notifyEmail');
+        const notifyMessage = document.getElementById('notifyMessage');
+
+        notifyBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = notifyEmail.value.trim();
+            const emailPattern = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/;
+            if (!email) {
+                notifyMessage.innerHTML = '<span style="color:#e53e3e;"><i class="fas fa-exclamation-circle"></i> Inserisci un indirizzo email valido.</span>';
+                notifyMessage.style.color = '#e53e3e';
+                return;
+            }
+            if (!emailPattern.test(email)) {
+                notifyMessage.innerHTML = '<span style="color:#e53e3e;"><i class="fas fa-exclamation-circle"></i> Email non valida.</span>';
+                notifyMessage.style.color = '#e53e3e';
+                return;
+            }
+            // Simulazione invio
+            notifyMessage.innerHTML = '<span style="color:#2d6a4f;"><i class="fas fa-check-circle"></i> Grazie! Ti avviseremo non appena il sito sarà online.</span>';
+            notifyMessage.style.color = '#2d6a4f';
+            notifyEmail.value = '';
+            // Reset messaggio dopo 5 secondi
+            setTimeout(() => {
+                if (notifyMessage.innerHTML.includes('Grazie')) {
+                    notifyMessage.innerHTML = '';
                 }
-            };
-            const fallbackTimer = setTimeout(hideSplash, 3000);
-            window.addEventListener('load', function() {
-                clearTimeout(fallbackTimer);
-                setTimeout(hideSplash, 800);
-            });
-        })();
-
-        // Mobile menu
-        const mobileToggle = document.getElementById('mobileToggle');
-        const navDesktop = document.getElementById('navDesktop');
-        mobileToggle.addEventListener('click', () => {
-            navDesktop.classList.toggle('active');
-            const icon = mobileToggle.querySelector('i');
-            if (navDesktop.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            }, 5000);
         });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                if (targetId === '#') return;
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    if (navDesktop.classList.contains('active')) {
-                        navDesktop.classList.remove('active');
-                        mobileToggle.querySelector('i').classList.add('fa-bars');
-                        mobileToggle.querySelector('i').classList.remove('fa-times');
-                    }
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 100,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-
-        // Sticky header shadow
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
-            } else {
-                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.08)';
-            }
-        });
-
-        // Hero Slider
-        (function() {
-            const slider = document.getElementById('heroSlider');
-            if (!slider) return;
-            const slides = slider.querySelector('.slides');
-            const slideNav = document.getElementById('slideNav');
-            const images = slides.querySelectorAll('img');
-            const totalSlides = images.length;
-            let currentIndex = 0;
-            let interval;
-            if (totalSlides === 0) return;
-            for (let i = 0; i < totalSlides; i++) {
-                const btn = document.createElement('button');
-                btn.addEventListener('click', () => goToSlide(i));
-                slideNav.appendChild(btn);
-            }
-            const navButtons = slideNav.querySelectorAll('button');
-
-            function updateSlide(index) {
-                slides.style.transform = 'translateX(-' + (index * 100) + '%)';
-                navButtons.forEach((btn, i) => btn.classList.toggle('active', i === index));
-            }
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateSlide(currentIndex);
-            }
-
-            function goToSlide(index) {
-                currentIndex = index;
-                updateSlide(currentIndex);
-                resetInterval();
-            }
-
-            function resetInterval() {
-                clearInterval(interval);
-                interval = setInterval(nextSlide, 4000);
-            }
-            updateSlide(0);
-            resetInterval();
-            slider.addEventListener('mouseenter', () => clearInterval(interval));
-            slider.addEventListener('mouseleave', resetInterval);
-        })();
     </script>
 </body>
 </html>
