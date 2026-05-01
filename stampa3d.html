@@ -100,6 +100,7 @@
             border-radius: 28px;
             box-shadow: 0 12px 28px rgba(0,0,0,0.05);
             border: 1px solid #eef2ff;
+            margin-bottom: 40px;
         }
 
         .contact-form h2 {
@@ -197,6 +198,113 @@
             margin-right: 6px;
         }
 
+        /* ========== FOOTER (stile corretto) ========== */
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e6;
+            padding: 60px 0 30px;
+            margin-top: 40px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            color: white;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #0077ff;
+        }
+
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+
+        .footer-logo span {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
+
+        .footer-col p {
+            color: #94a3b8;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: #1e293b;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e6;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: #0077ff;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #1e293b;
+            color: #94a3b8;
+            font-size: 0.85rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+
         @media (max-width: 640px) {
             .container {
                 padding: 24px 16px;
@@ -210,6 +318,18 @@
             h1 {
                 font-size: 1.8rem;
             }
+            .footer-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            .footer-col h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .social-links {
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -221,7 +341,6 @@
 
         <h1>🖨️ Stampa 3D, Progettazione e Riparazione Stampanti</h1>
 
-        <!-- Galleria esemplificativa (sostituisci con immagini reali) -->
         <div class="gallery">
             <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Stampa+3D" alt="Stampa 3D personalizzata">
             <img src="https://placehold.co/400x400/eef4ff/0077ff?text=Progettazione+CAD" alt="Progettazione 3D">
@@ -258,65 +377,69 @@
                         <i class="fas fa-envelope"></i> Invia richiesta via Email
                     </a>
                 </div>
-                 <!-- Footer -->
+                <div class="info-note">
+                    <i class="fas fa-info-circle"></i> Compila i campi: i pulsanti si aggiorneranno automaticamente con i tuoi dati.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER corretto (posizionato fuori dal container principale) -->
     <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="footer-logo"><h3>Audatech Informatica</h3><span>Riparazioni Professionali</span></div>
-                    <p>Ripariamo smartphone, tablet, PC e dispositivi elettronici con componenti di qualità e garanzia estesa.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/audatech_marina?igsh=eDBsdjBocjh6OA=="><i class="fab fa-instagram"></i></a>
-                    </div>
+        <div class="footer-container">
+            <div class="footer-col">
+                <div class="footer-logo">
+                    <h3>Audatech Informatica</h3>
+                    <span>Riparazioni Professionali</span>
                 </div>
-                <div class="footer-col">
-                    <h3>Link Utili</h3>
-                    <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#servizi">Servizi</a></li>
-                        <li><a href="#punti-forza">Punti di Forza</a></li>
-                        <li><a href="#riparazioni">Prezzi Riparazioni</a></li>
-                        <li><a href="#chi-siamo">Chi Siamo</a></li>
-                        <li><a href="#contatti">Contatti</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Servizi</h3>
-                    <ul class="footer-links">
-                        <li><a href="servizi.html">Riparazione Smartphone</a></li>
-                        <li><a href="servizi.html">Riparazione PC & Laptop</a></li>
-                        <li><a href="servizi.html">Stampa 3D Personalizzata</a></li>
-                        <li><a href="servizi.html">Riparazione a Domicilio</a></li>
-                        <li><a href="servizi.html">Recupero Dati</a></li>
-                        <li><a href="servizi.html">Assistenza da Remoto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contatti</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Via Adriatica, 17, 60018 Montemarciano AN</li>
-                        <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> +39 3478575458</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> audatechitalia@gmail.com</li>
-                        <li><i class="fas fa-clock" style="margin-right: 10px;"></i>Giovedì 9:15–18:30 Venerdì 09:15–18:30. Sabato chiuso Domenica Chiusa Lunedì 9:15–12:30 Martedì 9:15–18:30 Mercoledì 09:15–18:30</li>
-                    </ul>
+                <p>Ripariamo smartphone, tablet, PC e dispositivi elettronici con componenti di qualità e garanzia estesa.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/audatech_marina?igsh=eDBsdjBocjh6OA==" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2026 Audatech Informatica. Tutti i diritti riservati. | P.IVA 02823020421</p>
+            <div class="footer-col">
+                <h3>Link Utili</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="servizi.html">Servizi</a></li>
+                    <li><a href="index.html#punti-forza">Punti di Forza</a></li>
+                    <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+                    <li><a href="index.html#contatti">Contatti</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Servizi</h3>
+                <ul class="footer-links">
+                    <li><a href="riparazione-smartphone.html">Riparazione Smartphone</a></li>
+                    <li><a href="riparazione-pc.html">Riparazione PC & Laptop</a></li>
+                    <li><a href="stampa3d.html">Stampa 3D Personalizzata</a></li>
+                    <li><a href="interventi-domicilio.html">Riparazione a Domicilio</a></li>
+                    <li><a href="#">Recupero Dati</a></li>
+                    <li><a href="#">Assistenza da Remoto</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contatti</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Via Adriatica, 17, 60018 Montemarciano AN</li>
+                    <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> +39 3478575458</li>
+                    <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> audatechitalia@gmail.com</li>
+                    <li><i class="fas fa-clock" style="margin-right: 10px;"></i> Lun-Ven 9:15–18:30, Sab 9:15–12:30</li>
+                </ul>
             </div>
         </div>
+        <div class="copyright">
+            <p>&copy; 2026 Audatech Informatica. Tutti i diritti riservati. | P.IVA 02823020421</p>
+        </div>
     </footer>
-    <script>
-        // ------------------- DATI DI CONTATTO REALI -------------------
-        // Numero WhatsApp nel formato internazionale senza '+' (solo cifre)
-        // Esempio per Italia: 393478575458  ( +39 347 857 5458 )
-        const WHATSAPP_NUMBER = '393478575458';   // <-- inserisci il numero corretto Audatech
-        
-        // Indirizzo email aziendale
-        const EMAIL_ADDRESS = 'audatechitalia@gmail.com';   // <-- modifica con la tua email reale
-        // -------------------------------------------------------------
 
-        // Riferimenti DOM
+    <script>
+        // Contatti reali
+        const WHATSAPP_NUMBER = '393478575458';
+        const EMAIL_ADDRESS = 'audatechitalia@gmail.com';
+
         const form = document.getElementById('contactForm');
         const nomeInput = document.getElementById('nome');
         const emailInput = document.getElementById('email');
@@ -324,13 +447,11 @@
         const whatsappBtn = document.getElementById('whatsappBtn');
         const emailBtn = document.getElementById('emailBtn');
 
-        // Funzione per generare il messaggio WhatsApp completo (testo + dati modulo)
         function buildWhatsAppText() {
             let nome = nomeInput.value.trim();
             let email = emailInput.value.trim();
             let messaggio = messaggioInput.value.trim();
 
-            // Se i campi sono vuoti, usiamo un messaggio generico di cortesia
             if (!nome && !email && !messaggio) {
                 return "Salve, vorrei maggiori informazioni sulla stampa 3D e riparazione stampanti. Potete aiutarmi?";
             }
@@ -338,72 +459,49 @@
             let intro = `Richiesta da: ${nome || '(Nome non inserito)'}`;
             if (email) intro += `\nEmail: ${email}`;
             let corpo = `\n\n📋 Dettaglio richiesta:\n${messaggio || '(Nessun dettaglio scritto)'}`;
-            
-            // Aggiunge specifica servizio
             let servizio = "\n\n🔧 *Servizio: Stampa 3D / Progettazione / Riparazione stampanti*";
             return encodeURIComponent(intro + corpo + servizio);
         }
 
-        // Funzione per costruire il link mailto: 
         function buildMailToLink() {
             let nome = nomeInput.value.trim();
             let email = emailInput.value.trim();
             let messaggio = messaggioInput.value.trim();
 
             let subject = `Richiesta preventivo Stampa 3D - ${nome || 'Nuovo cliente'}`;
-            let body = `Ciao, \n\n`;
-            body += `Richiedo informazioni per:\n`;
+            let body = `Ciao,\n\nRichiedo informazioni per:\n`;
             body += `- Nome: ${nome || '(non indicato)'}\n`;
             body += `- Email contatto: ${email || '(non indicata)'}\n\n`;
             body += `Dettaglio richiesta:\n${messaggio || '(nessun dettaglio aggiunto)'}\n\n`;
             body += `--\nInviato dal modulo Stampa 3D Audatech`;
-            
             return `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
-        // Funzione per aggiornare entrambi i link in tempo reale
         function updateLinks() {
-            // WhatsApp
-            const waText = buildWhatsAppText();
-            whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${waText}`;
-            
-            // Email
+            whatsappBtn.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${buildWhatsAppText()}`;
             emailBtn.href = buildMailToLink();
         }
 
-        // Ascoltiamo ogni modifica nei campi del form
         form.addEventListener('input', updateLinks);
-        
-        // Evento anche per 'change' (sicurezza) e primo caricamento
         form.addEventListener('change', updateLinks);
-        
-        // Inizializzazione: imposta i link appena la pagina è pronta (con campi vuoti o pre-valori)
         window.addEventListener('DOMContentLoaded', () => {
             updateLinks();
-            
-            // Opzionale: piccolo feedback se i campi sono stati compilati da autofill
             setTimeout(updateLinks, 200);
         });
 
-        // Previene il submit classico del form (se qualcuno prova a premere invio)
         form.addEventListener('submit', (e) => {
             e.preventDefault();
-            // Non inviamo nulla al server, lasciamo i pulsanti fare il redirect
-            // Possibile feedback
             alert("Usa i pulsanti WhatsApp o Email per inviare la tua richiesta.");
         });
 
-        // Messaggio di conferma per l'email: non obbligatorio ma aiuta
         emailBtn.addEventListener('click', (e) => {
-            // Nessun blocco, ma se l'email è vuota avvisiamo gentilmente
             if (!emailInput.value.trim() || !nomeInput.value.trim()) {
-                if (!confirm("Non hai inserito nome o email. Il messaggio partirà anonimo, vuoi comunque procedere?")) {
+                if (!confirm("Non hai inserito nome o email. Il messaggio partirà anonimo. Vuoi continuare?")) {
                     e.preventDefault();
                 }
             }
         });
-        
-        // WhatsApp: stesso avviso facoltativo
+
         whatsappBtn.addEventListener('click', (e) => {
             if (!messaggioInput.value.trim() && !nomeInput.value.trim()) {
                 if (!confirm("Il messaggio WhatsApp non contiene dettagli specifici. Vuoi inviare comunque una richiesta generica?")) {
