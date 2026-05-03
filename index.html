@@ -263,12 +263,15 @@
              transition: transform 0.5s ease;
              height: 100%;
         }
+        
         .hero-slider .slides img {
-            min-width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+         min-width: 100%;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+         display: block;
+         flex-shrink: 0;
+        }
         .hero-slider .slide-nav {
             position: absolute;
             bottom: 20px;
@@ -907,7 +910,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-slider" id="heroSlider">
-                    <div class="slides">
+                    <div class="slides"id ="heroSlides">
                         <img src="img1.jpg" alt="Riparazione 1">
                         <img src="img2.jpg" alt="Riparazione 2">
                         <img src="img3.jpg" alt="Riparazione 3">
@@ -1213,48 +1216,36 @@ Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la
         });
 
         // Hero Slider (4 immagini)
-        (function() {
-            const slider = document.getElementById('heroSlider');
-            if (!slider) return;
-            const slides = slider.querySelector('.slides');
-            const slideNav = document.getElementById('slideNav');
-            const images = slides.querySelectorAll('img');
-            const totalSlides = images.length;
-            let currentIndex = 0;
-            let interval;
-            if (totalSlides === 0) return;
-            for (let i = 0; i < totalSlides; i++) {
-                const btn = document.createElement('button');
-                btn.addEventListener('click', () => goToSlide(i));
-                slideNav.appendChild(btn);
-            }
-            const navButtons = slideNav.querySelectorAll('button');
-
-            function updateSlide(index) {
-                slides.style.transform = 'translateX(-' + (index * 100) + '%)';
-                navButtons.forEach((btn, i) => btn.classList.toggle('active', i === index));
-            }
-
-            function nextSlide() {
-                currentIndex = (currentIndex + 1) % totalSlides;
-                updateSlide(currentIndex);
-            }
-
-            function goToSlide(index) {
-                currentIndex = index;
-                updateSlide(currentIndex);
-                resetInterval();
-            }
-
-            function resetInterval() {
-                clearInterval(interval);
-                interval = setInterval(nextSlide, 4000);
-            }
-            updateSlide(0);
-            resetInterval();
-            slider.addEventListener('mouseenter', () => clearInterval(interval));
-            slider.addEventListener('mouseleave', resetInterval);
-        })();
+(function(){
+    var slider=document.getElementById('heroSlider');
+    if(!slider)return;
+    var slides=document.getElementById('heroSlides');
+    var navEl=document.getElementById('slideNav');
+    var imgs=slides.querySelectorAll('img');
+    var total=imgs.length,cur=0,timer,startX=0;
+    if(!total)return;
+    for(var i=0;i<total;i++){
+        var b=document.createElement('button');
+        b.addEventListener('click',(function(idx){return function(){go(idx);};})(i));
+        navEl.appendChild(b);
+    }
+    var dots=navEl.querySelectorAll('button');
+    function update(i){
+        slides.style.transform='translateX(-'+(i*100)+'%)';
+        dots.forEach(function(d,j){d.classList.toggle('active',j===i);});
+    }
+    function go(i){cur=(i+total)%total;update(cur);restart();}
+    function restart(){clearInterval(timer);timer=setInterval(function(){go(cur+1);},4000);}
+    slider.addEventListener('mouseenter',function(){clearInterval(timer);});
+    slider.addEventListener('mouseleave',restart);
+    slides.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;clearInterval(timer);},{passive:true});
+    slides.addEventListener('touchend',function(e){
+        var dx=e.changedTouches[0].clientX-startX;
+        if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));
+        else restart();
+    },{passive:true});
+    update(0);restart();
+})();
     </script>
 </body>
 </html>
