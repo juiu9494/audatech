@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Taglio Pellicole su Misura - Audatech</title>
+    <title>Recupero Dati & Backup - Audatech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -575,7 +575,7 @@
 <body>
 
     <!-- WHATSAPP FLOATING BUTTON -->
-    <a href="https://wa.me/393478575458?text=Salve%2C%20vorrei%20informazioni%20sulle%20pellicole%20su%20misura"
+    <a href="https://wa.me/393478575458?text=Salve%2C%20ho%20bisogno%20di%20recuperare%20dati%20importanti"
     class="whatsapp-float"
     target="_blank" rel="noopener noreferrer"
     aria-label="Contattaci su WhatsApp">
@@ -607,23 +607,25 @@
     <!-- MAIN CONTENT -->
     <div class="page-content">
         <div class="back"><a href="./index.html"><i class="fas fa-arrow-left"></i> Torna ai servizi</a></div>
-        <h1 class="page-title">🔍 Taglio Pellicole su Misura</h1>
+        <h1 class="page-title">💾 Recupero Dati, Backup & Trasferimento</h1>
 
         <div class="gallery">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Pellicola+applicata" alt="Pellicola applicata">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Taglio+precisione" alt="Taglio di precisione">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Pellicola+idrogel" alt="Pellicola idrogel">
+            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Hard+Disk" alt="Recupero dati hard disk">
+            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=SSD" alt="Recupero dati SSD">
+            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Backup" alt="Backup automatici">
+            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Smartphone" alt="Recupero dati telefono">
         </div>
 
         <div class="desc">
-            <p><strong>🛡️ Protezione su misura per ogni dispositivo</strong> – Utilizziamo un plotter di taglio laser professionale per realizzare pellicole perfettamente aderenti a qualsiasi modello di smartphone, tablet, smartwatch, lettori MP3 e dispositivi con schermo curvato.</p>
-            <p><strong>📱 Ampia scelta di materiali</strong> – Pellicole in idrogel (autoriparanti, massima trasparenza), vetro temperato 9H, pellicole privacy (oscuramento laterale) e antiriflesso. Applicazione professionale senza bolle inclusa.</p>
-            <p><strong>⚡ Servizio rapido</strong> – In negozio la pellicola è pronta in pochi minuti. Su richiesta, veniamo a domicilio o eseguiamo il taglio per spedizione.</p>
-            <p>✔️ Adatto anche per modelli obsoleti o poco comuni | Prezzi trasparenti | Garanzia applicazione</p>
+            <p><strong>🛡️ Recupero professionale</strong> – Interveniamo su qualsiasi supporto: hard disk interni/esterni, SSD, chiavette USB, schede SD, smartphone e tablet. Recuperiamo dati persi per cancellazione accidentale, formattazione, guasti meccanici o elettronici, virus e ransomware. Tecnici specializzati, camera bianca per interventi delicati.</p>
+            <p><strong>💿 Backup intelligente</strong> – Configuriamo sistemi di backup automatico su cloud (Google Drive, OneDrive, Dropbox) o su dispositivi NAS e hard disk di rete. Pianifichiamo copie periodiche dei tuoi file più importanti, senza pensieri.</p>
+            <p><strong>🚀 Trasferimento sicuro</strong> – Migriamo i tuoi dati da un vecchio PC a uno nuovo, trasferiamo contatti, foto e messaggi da telefono a telefono, anche tra sistemi operativi diversi (iOS ↔ Android). Assistenza anche per traslochi aziendali e migrazioni di server.</p>
+            <p><strong>🔒 Cancellazione sicura e prevenzione</strong> – Distruggiamo in modo irreversibile dati sensibili secondo standard DoD, GDPR. Offriamo consulenza per evitare future perdite: crittografia, backup 3-2-1, antivirus.</p>
+            <p>✔️ Preventivo gratuito | Nessun recupero = nessuna spesa (per molti casi) | Garantita riservatezza</p>
         </div>
 
         <div class="contact-form">
-            <h2>✉️ Richiedi info o appuntamento</h2>
+            <h2>✉️ Richiedi assistenza immediata</h2>
             <form id="contactForm">
                 <div class="form-group">
                     <label for="nome">Nome e cognome</label>
@@ -634,8 +636,8 @@
                     <input type="email" id="email" placeholder="tuo@esempio.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="messaggio">Modello del dispositivo e tipo di pellicola desiderato (idrogel, vetro, privacy...)</label>
-                    <textarea id="messaggio" rows="4" placeholder="Es: iPhone 14 Pro, pellicola idrogel / Samsung Galaxy Tab S8, pellicola privacy" required></textarea>
+                    <label for="messaggio">Descrivi il tipo di supporto (HDD, SSD, USB, telefono...), cosa è successo e i dati da recuperare</label>
+                    <textarea id="messaggio" rows="4" placeholder="Es: Hard disk esterno WD 2TB non riconosciuto, caduto ieri. Vorrei recuperare foto e documenti di lavoro." required></textarea>
                 </div>
 
                 <div class="btn-group">
@@ -722,13 +724,13 @@
             let messaggio = messaggioInput.value.trim();
 
             if (!nome && !email && !messaggio) {
-                return "Salve, vorrei informazioni sulle pellicole su misura e l'applicazione. Potete aiutarmi?";
+                return "Salve, ho bisogno di recuperare dati importanti. Potete aiutarmi?";
             }
 
             let intro = `*Richiesta da:* ${nome || '(Nome non inserito)'}`;
             if (email) intro += `\n*Email:* ${email}`;
-            let corpo = `\n\n📱 *Dispositivo e richiesta:*\n${messaggio || '(Nessun dettaglio scritto)'}`;
-            let footer = "\n\n🔍 *Servizio: Taglio pellicola su misura*";
+            let corpo = `\n\n💾 *Dettaglio problema dati:*\n${messaggio || '(Nessun dettaglio scritto)'}`;
+            let footer = "\n\n🔍 *Servizio: Recupero Dati / Backup / Trasferimento*";
             return encodeURIComponent(intro + corpo + footer);
         }
 
@@ -737,12 +739,12 @@
             let email = emailInput.value.trim();
             let messaggio = messaggioInput.value.trim();
 
-            let subject = `Richiesta pellicola su misura - ${nome || 'Nuovo cliente'}`;
-            let body = `Ciao,\n\nVorrei richiedere una pellicola su misura per il mio dispositivo:\n`;
+            let subject = `Richiesta recupero dati - ${nome || 'Nuovo cliente'}`;
+            let body = `Ciao,\n\nRichiedo assistenza per recupero dati o backup:\n`;
             body += `- Nome: ${nome || '(non indicato)'}\n`;
             body += `- Email: ${email || '(non indicata)'}\n\n`;
-            body += `Dettaglio richiesta:\n${messaggio || '(nessuna descrizione inserita)'}\n\n`;
-            body += `--\nInviato dal modulo Pellicole di Audatech`;
+            body += `Descrizione del problema:\n${messaggio || '(nessuna descrizione inserita)'}\n\n`;
+            body += `--\nInviato dal modulo Recupero Dati di Audatech`;
             return `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
