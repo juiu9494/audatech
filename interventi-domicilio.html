@@ -171,6 +171,111 @@
             }
         }
 
+        /* ========== SPLASH SCREEN ========== */
+        #splashScreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #ffffff;
+            z-index: 99999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+            opacity: 1;
+            visibility: visible;
+            perspective: 1000px;
+        }
+        #splashScreen.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+        .splash-logo-3d {
+            width: 180px;
+            height: 180px;
+            margin-bottom: 20px;
+            animation: rotate3d 2s cubic-bezier(0.68, -0.55, 0.27, 1.55) infinite, glowPulse 1.5s ease-in-out infinite alternate;
+            transform-style: preserve-3d;
+        }
+        .splash-logo-3d img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: drop-shadow(0 0 15px rgba(0, 86, 179, 0.6));
+            backface-visibility: hidden;
+        }
+        @keyframes rotate3d {
+            0% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            25% {
+                transform: rotateY(10deg) rotateX(5deg);
+            }
+            50% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+            75% {
+                transform: rotateY(-10deg) rotateX(-5deg);
+            }
+            100% {
+                transform: rotateY(0deg) rotateX(0deg);
+            }
+        }
+        @keyframes glowPulse {
+            from {
+                filter: drop-shadow(0 0 10px #00a8ff);
+            }
+            to {
+                filter: drop-shadow(0 0 25px #0056b3);
+            }
+        }
+        .splash-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: #0056b3;
+            border-radius: 50%;
+            animation: floatParticle 2s linear infinite;
+            opacity: 0;
+        }
+        @keyframes floatParticle {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) scale(0);
+                opacity: 0;
+            }
+        }
+        .splash-tagline {
+            font-size: 1.2rem;
+            color: #0056b3;
+            font-weight: 500;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* ========== HEADER ========== */
         header {
             background-color: white;
@@ -261,53 +366,6 @@
         }
 
         /* ========== REPAIR PAGE SPECIFIC ========== */
-        .back {
-            margin-bottom: 28px;
-        }
-        .back a {
-            color: #0056b3;
-            text-decoration: none;
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-        .back a:hover {
-            color: #003d82;
-            text-decoration: underline;
-        }
-
-        .page-title {
-            font-size: 2rem;
-            font-weight: 700;
-            background: linear-gradient(135deg, #0a2b4e, #0056b3);
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 24px;
-        }
-
-        .gallery {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-            margin-bottom: 32px;
-        }
-        .gallery img {
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-            border-radius: 20px;
-            background: #eef4ff;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-        }
-        .gallery img:hover {
-            transform: scale(1.02);
-        }
-
         .desc {
             background: white;
             padding: 28px;
@@ -541,9 +599,6 @@
             .btn-email {
                 justify-content: center;
             }
-            .page-title {
-                font-size: 1.6rem;
-            }
             .whatsapp-float {
                 bottom: 20px;
                 right: 15px;
@@ -559,10 +614,6 @@
         }
 
         @media (max-width: 480px) {
-            .gallery img {
-                width: 120px;
-                height: 120px;
-            }
             .contact-form {
                 padding: 24px 18px;
             }
@@ -573,7 +624,6 @@
     </style>
 </head>
 <body>
-
     <!-- WHATSAPP FLOATING BUTTON -->
     <a href="https://wa.me/393478575458?text=Salve%2C%20vorrei%20richiedere%20un%20intervento%20a%20domicilio%2Fremoto%2Fritiro"
     class="whatsapp-float"
@@ -604,17 +654,8 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
+    <!-- MAIN CONTENT (senza back, titolo e gallery) -->
     <div class="page-content">
-        <div class="back"><a href="./index.html"><i class="fas fa-arrow-left"></i> Torna ai servizi</a></div>
-        <h1 class="page-title">🚗 Interventi a domicilio / Remoto / Ritiro</h1>
-
-        <div class="gallery">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Domicilio" alt="Assistenza a domicilio">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Remoto" alt="Assistenza remota">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Ritiro" alt="Ritiro dispositivo">
-        </div>
-
         <div class="desc">
             <p><strong>🏠 Assistenza a domicilio</strong> – Veniamo direttamente a casa tua o in ufficio per riparazioni hardware, configurazioni di rete, installazione di sistemi operativi, periferiche e risoluzione di qualsiasi problema tecnico. Comodo e veloce.</p>
             <p><strong>🖥️ Assistenza remoto</strong> – Risolviamo problemi software, virus, lentezze, backup, aggiornamenti e configurazioni via TeamViewer o AnyDesk. Senza spostamenti, in pochi minuti.</p>
@@ -761,7 +802,8 @@
 
         emailBtn.addEventListener('click', (e) => {
             if (!emailInput.value.trim() || !nomeInput.value.trim()) {
-                if (!confirm("Non hai inserito nome o email. Il messaggio sarà anonimo. Vuoi continuare?")) {
+                if (!confirm(
+                        "Non hai inserito nome o email. Il messaggio partirà in modo anonimo. Vuoi continuare?")) {
                     e.preventDefault();
                 }
             }
@@ -769,11 +811,42 @@
 
         whatsappBtn.addEventListener('click', (e) => {
             if (!messaggioInput.value.trim() && !nomeInput.value.trim()) {
-                if (!confirm("Il messaggio WhatsApp non contiene dettagli. Inviare richiesta generica?")) {
+                if (!confirm(
+                        "Il messaggio WhatsApp non contiene dettagli. Inviare richiesta generica?")) {
                     e.preventDefault();
                 }
             }
         });
+
+        // ========== SPLASH SCREEN (se presente) ==========
+        (function() {
+            const splash = document.getElementById('splashScreen');
+            if (!splash) return;
+            const particlesContainer = document.getElementById('particles');
+            if (particlesContainer) {
+                for (let i = 0; i < 30; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = 'particle';
+                    particle.style.left = Math.random() * 100 + '%';
+                    particle.style.animationDelay = Math.random() * 2 + 's';
+                    particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                    particlesContainer.appendChild(particle);
+                }
+            }
+            const hideSplash = function() {
+                if (splash && !splash.classList.contains('hidden')) {
+                    splash.classList.add('hidden');
+                    setTimeout(function() {
+                        if (splash.parentNode) splash.parentNode.removeChild(splash);
+                    }, 800);
+                }
+            };
+            const fallbackTimer = setTimeout(hideSplash, 3000);
+            window.addEventListener('load', function() {
+                clearTimeout(fallbackTimer);
+                setTimeout(hideSplash, 800);
+            });
+        })();
 
         // ========== MOBILE MENU ==========
         const mobileToggle = document.getElementById('mobileToggle');
