@@ -255,9 +255,9 @@
         }
         .mobile-toggle {
          display: block;
-         padding-right: 10px;   /* <-- ajoute un espacement à droite */
+         padding-right: 10px;
         }
-        }
+        /* *** CORREZIONE: rimossa la parentesi graffa di troppo che rompeva lo slider *** */
         .hero-slider .slides {
              display: flex;
              transition: transform 0.5s ease;
@@ -911,7 +911,7 @@
             </div>
             <div class="hero-image">
                 <div class="hero-slider" id="heroSlider">
-                    <div class="slides"id ="heroSlides">
+                    <div class="slides" id="heroSlides">
                         <img src="img1.jpg" alt="Riparazione 1">
                         <img src="img2.jpg" alt="Riparazione 2">
                         <img src="img3.jpg" alt="Riparazione 3">
@@ -1114,6 +1114,7 @@ Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la
                 <p>Via Adriatica, 17, 60018 Montemarciano AN</p>
             </div>
             <div class="map-container">
+                <!-- ⚠️ ATTENZIONE: sostituire l'iframe con le coordinate reali di Via Adriatica 17, Montemarciano -->
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11604.63123456789!2d13.345678!3d43.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x132cbf123456789%3A0x123456789abcdef!2sVia%20Adriatica%2C%2017%2C%2060018%20Montemarciano%20AN!5e0!3m2!1sit!2sit!4v1717000000000"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
                         title="Mappa Audatech Informatica"></iframe>
@@ -1136,9 +1137,9 @@ Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la
                     <h3>Link Utili</h3>
                     <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#servizi">Servizi</a></li>
+                        <li><a href="servizi.html">Servizi</a></li>   <!-- corretto -->
                         <li><a href="#punti-forza">Punti di Forza</a></li>
-                        <li><a href="#riparazioni">Prezzi Riparazioni</a></li>
+                        <li><a href="servizi.html">Prezzi Riparazioni</a></li> <!-- corretto -->
                         <li><a href="#chi-siamo">Chi Siamo</a></li>
                         <li><a href="#contatti">Contatti</a></li>
                     </ul>
@@ -1217,36 +1218,36 @@ Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la
         });
 
         // Hero Slider (4 immagini)
-(function(){
-    var slider=document.getElementById('heroSlider');
-    if(!slider)return;
-    var slides=document.getElementById('heroSlides');
-    var navEl=document.getElementById('slideNav');
-    var imgs=slides.querySelectorAll('img');
-    var total=imgs.length,cur=0,timer,startX=0;
-    if(!total)return;
-    for(var i=0;i<total;i++){
-        var b=document.createElement('button');
-        b.addEventListener('click',(function(idx){return function(){go(idx);};})(i));
-        navEl.appendChild(b);
-    }
-    var dots=navEl.querySelectorAll('button');
-    function update(i){
-        slides.style.transform='translateX(-'+(i*100)+'%)';
-        dots.forEach(function(d,j){d.classList.toggle('active',j===i);});
-    }
-    function go(i){cur=(i+total)%total;update(cur);restart();}
-    function restart(){clearInterval(timer);timer=setInterval(function(){go(cur+1);},4000);}
-    slider.addEventListener('mouseenter',function(){clearInterval(timer);});
-    slider.addEventListener('mouseleave',restart);
-    slides.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;clearInterval(timer);},{passive:true});
-    slides.addEventListener('touchend',function(e){
-        var dx=e.changedTouches[0].clientX-startX;
-        if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));
-        else restart();
-    },{passive:true});
-    update(0);restart();
-})();
+        (function(){
+            var slider=document.getElementById('heroSlider');
+            if(!slider)return;
+            var slides=document.getElementById('heroSlides');
+            var navEl=document.getElementById('slideNav');
+            var imgs=slides.querySelectorAll('img');
+            var total=imgs.length,cur=0,timer,startX=0;
+            if(!total)return;
+            for(var i=0;i<total;i++){
+                var b=document.createElement('button');
+                b.addEventListener('click',(function(idx){return function(){go(idx);};})(i));
+                navEl.appendChild(b);
+            }
+            var dots=navEl.querySelectorAll('button');
+            function update(i){
+                slides.style.transform='translateX(-'+(i*100)+'%)';
+                dots.forEach(function(d,j){d.classList.toggle('active',j===i);});
+            }
+            function go(i){cur=(i+total)%total;update(cur);restart();}
+            function restart(){clearInterval(timer);timer=setInterval(function(){go(cur+1);},4000);}
+            slider.addEventListener('mouseenter',function(){clearInterval(timer);});
+            slider.addEventListener('mouseleave',restart);
+            slides.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;clearInterval(timer);},{passive:true});
+            slides.addEventListener('touchend',function(e){
+                var dx=e.changedTouches[0].clientX-startX;
+                if(Math.abs(dx)>40)go(cur+(dx<0?1:-1));
+                else restart();
+            },{passive:true});
+            update(0);restart();
+        })();
     </script>
 </body>
 </html>
