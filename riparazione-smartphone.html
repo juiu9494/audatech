@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Riparazione Smartphone & Tablet - Audatech</title>
+    <title>Interventi a domicilio / Remoto / Ritiro - Audatech</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
 
@@ -77,67 +77,6 @@
             .page-content {
                 padding: 130px 20px 30px;
             }
-        }
-
-        /* ========== BUTTONS (global) ========== */
-        .btn {
-            display: inline-block;
-            padding: 14px 32px;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: var(--radius);
-            font-weight: 600;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-            font-size: 1rem;
-            text-align: center;
-        }
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-        }
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-        .btn-accent {
-            background-color: var(--accent);
-        }
-        .btn-accent:hover {
-            background-color: #e55a2b;
-        }
-
-        /* Large WhatsApp CTA (homepage style) */
-        .btn-whatsapp-large {
-            background-color: #25D366;
-            color: white;
-            display: inline-flex;
-            align-items: center;
-            gap: 12px;
-            padding: 18px 38px;
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: 700;
-            box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
-            text-decoration: none;
-            border: none;
-        }
-        .btn-whatsapp-large:hover {
-            background-color: #1da851;
-            transform: translateY(-4px);
-            box-shadow: 0 14px 35px rgba(37, 211, 102, 0.5);
-        }
-        .btn-whatsapp-large i {
-            font-size: 1.8rem;
         }
 
         /* ========== WHATSAPP FLOATING BUTTON ========== */
@@ -484,6 +423,7 @@
         }
         .desc p {
             margin-bottom: 12px;
+            color: #2c3e5c;
         }
         .desc p:last-child {
             margin-bottom: 0;
@@ -739,8 +679,17 @@
 </head>
 <body>
 
+    <!-- SPLASH SCREEN -->
+    <div id="splashScreen">
+        <div class="splash-logo-3d">
+            <img src="logo.png" alt="Audatech Logo">
+        </div>
+        <div class="splash-tagline">Riparazioni Professionali</div>
+        <div class="splash-particles" id="particles"></div>
+    </div>
+
     <!-- WHATSAPP FLOATING BUTTON -->
-    <a href="https://wa.me/393478575458?text=Salve%2C%20vorrei%20richiedere%20informazioni%20per%20una%20riparazione"
+    <a href="https://wa.me/393478575458?text=Salve%2C%20vorrei%20richiedere%20un%20intervento%20a%20domicilio%2Fremoto%2Fritiro"
     class="whatsapp-float"
     target="_blank" rel="noopener noreferrer"
     aria-label="Contattaci su WhatsApp">
@@ -772,22 +721,23 @@
     <!-- MAIN CONTENT -->
     <div class="page-content">
         <div class="back"><a href="./index.html"><i class="fas fa-arrow-left"></i> Torna ai servizi</a></div>
-        <h1 class="page-title">📱 Riparazione Smartphone, Tablet e Cordless</h1>
+        <h1 class="page-title">🚗 Interventi a domicilio / Remoto / Ritiro</h1>
 
         <div class="gallery">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Schermo+rotto" alt="Sostituzione schermo" loading="lazy">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Batteria" alt="Sostituzione batteria" loading="lazy">
-            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Microsaldatura" alt="Microsaldature" loading="lazy">
+            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Domicilio" alt="Assistenza a domicilio">
+            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Remoto" alt="Assistenza remota">
+            <img src="https://placehold.co/400x400/eef4ff/0056b3?text=Ritiro" alt="Ritiro dispositivo">
         </div>
 
         <div class="desc">
-            <p><strong>🔧 Riparazioni veloci e garantite</strong> – Interveniamo su smartphone e tablet di tutte le marche: Apple, Samsung, Xiaomi, Huawei, Google Pixel, OnePlus e molti altri. Sostituzione schermi rotti, batterie scariche, connettori di carica, microfoni, altoparlanti, tasti laterali.</p>
-            <p><strong>📞 Telefoni cordless e dispositivi portatili</strong> – Ripariamo anche cordless da ufficio/casa, palmari GPS, e-reader e console portatili. Diagnosi gratuita, preventivo trasparente e nessun impegno.</p>
-            <p><strong>⚡ Microsaldature di precisione</strong> – Riparazione schede madri, ricarica wireless, sostituzione IC e componenti SMD. Tecnici specializzati con attrezzatura professionale.</p>
+            <p><strong>🏠 Assistenza a domicilio</strong> – Veniamo direttamente a casa tua o in ufficio per riparazioni hardware, configurazioni di rete, installazione di sistemi operativi, periferiche e risoluzione di qualsiasi problema tecnico. Comodo e veloce.</p>
+            <p><strong>🖥️ Assistenza remoto</strong> – Risolviamo problemi software, virus, lentezze, backup, aggiornamenti e configurazioni via TeamViewer o AnyDesk. Senza spostamenti, in pochi minuti.</p>
+            <p><strong>📦 Ritiro e riconsegna</strong> – Se il dispositivo richiede interventi in laboratorio, lo ritiriamo noi, lo ripariamo e te lo riportiamo a casa funzionante. Servizio "chiavi in mano".</p>
+            <p>✔️ Preventivo gratuito | Interventi senza sorprese | Copertura in tutta la zona</p>
         </div>
 
         <div class="contact-form">
-            <h2>✉️ Richiedi preventivo o informazioni</h2>
+            <h2>✉️ Richiedi un intervento</h2>
             <form id="contactForm">
                 <div class="form-group">
                     <label for="nome">Nome e cognome</label>
@@ -798,8 +748,8 @@
                     <input type="email" id="email" placeholder="tuo@esempio.com" required>
                 </div>
                 <div class="form-group">
-                    <label for="messaggio">Descrivi il problema (modello, guasto, richieste specifiche)</label>
-                    <textarea id="messaggio" rows="4" placeholder="Es: iPhone 12 schermo rotto, Samsung A50 non si carica, cordless Gigaset non squilla..." required></textarea>
+                    <label for="messaggio">Tipo di intervento (domicilio/remoto/ritiro) + indirizzo (se domicilio) + descrizione problema</label>
+                    <textarea id="messaggio" rows="4" placeholder="Es: Richiedo intervento a domicilio in Via Roma 12, Milano. Il PC non si accende. / Oppure: assistenza remota per rimozione virus." required></textarea>
                 </div>
 
                 <div class="btn-group">
@@ -886,13 +836,13 @@
             let messaggio = messaggioInput.value.trim();
 
             if (!nome && !email && !messaggio) {
-                return "Salve, ho bisogno di informazioni per riparare un dispositivo (smartphone/tablet/cordless). Potete aiutarmi?";
+                return "Salve, vorrei richiedere un intervento a domicilio/remoto/ritiro. Potete fornirmi informazioni?";
             }
 
             let intro = `*Richiesta da:* ${nome || '(Nome non inserito)'}`;
             if (email) intro += `\n*Email:* ${email}`;
-            let corpo = `\n\n📱 *Dettaglio problema:*\n${messaggio || '(Nessun dettaglio scritto)'}`;
-            let footer = "\n\n🔧 *Servizio: Riparazione Smartphone/Tablet/Cordless*";
+            let corpo = `\n\n🚗 *Tipo e dettaglio intervento:*\n${messaggio || '(Nessun dettaglio scritto)'}`;
+            let footer = "\n\n🛠️ *Servizio: Intervento a domicilio / Remoto / Ritiro*";
             return encodeURIComponent(intro + corpo + footer);
         }
 
@@ -901,12 +851,12 @@
             let email = emailInput.value.trim();
             let messaggio = messaggioInput.value.trim();
 
-            let subject = `Richiesta riparazione smartphone/tablet - ${nome || 'Nuovo cliente'}`;
-            let body = `Ciao,\n\nRichiedo un preventivo per la riparazione del mio dispositivo:\n`;
+            let subject = `Richiesta intervento tecnico - ${nome || 'Nuovo cliente'}`;
+            let body = `Ciao,\n\nRichiedo un intervento tecnico con le seguenti modalità:\n`;
             body += `- Nome: ${nome || '(non indicato)'}\n`;
-            body += `- Email di riferimento: ${email || '(non indicata)'}\n\n`;
-            body += `Descrizione del problema:\n${messaggio || '(nessuna descrizione inserita)'}\n\n`;
-            body += `--\nInviato dal modulo Riparazione Smartphone di Audatech`;
+            body += `- Email: ${email || '(non indicata)'}\n\n`;
+            body += `Dettagli richiesta:\n${messaggio || '(nessuna descrizione inserita)'}\n\n`;
+            body += `--\nInviato dal modulo Interventi di Audatech`;
             return `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
         }
 
@@ -936,8 +886,7 @@
         whatsappBtn.addEventListener('click', (e) => {
             if (!messaggioInput.value.trim() && !nomeInput.value.trim()) {
                 if (!confirm(
-                        "Il messaggio WhatsApp non contiene dettagli specifici. Vuoi inviare comunque una richiesta generica?"
-                        )) {
+                        "Il messaggio WhatsApp non contiene dettagli. Inviare richiesta generica?")) {
                     e.preventDefault();
                 }
             }
