@@ -81,10 +81,12 @@
             transition: transform 0.3s;
         }
 
+        /* Logo – même dimension que la page d’accueil */
         .logo img {
-            height: 100px;
+            height: 120px;
             width: auto;
-            max-width: 280px;
+            display: block;
+            max-width: 336px;
             object-fit: contain;
         }
 
@@ -94,13 +96,16 @@
 
         @media (max-width: 768px) {
             .logo img {
-                height: 70px;
+                height: 84px;
+            }
+            .header-container {
+                padding: 8px 0;
             }
         }
 
         @media (max-width: 480px) {
             .logo img {
-                height: 65px;
+                height: 78px;
             }
         }
 
@@ -372,6 +377,16 @@
             background-color: #0056b3;
         }
 
+        .footer-logo h3 {
+            font-size: 1.8rem;
+            margin-bottom: 5px;
+        }
+        .footer-logo span {
+            font-size: 0.9rem;
+            color: #adb5bd;
+            letter-spacing: 1px;
+        }
+
         .footer-links {
             list-style: none;
         }
@@ -388,6 +403,27 @@
 
         .footer-links a:hover {
             color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .social-links a {
+            width: 40px; height: 40px;
+            background-color: #343a40;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        .social-links a:hover {
+            background-color: #0056b3;
+            transform: translateY(-3px);
         }
 
         .copyright {
@@ -528,7 +564,8 @@
             </div>
         </div>
     </section>
-     <!-- Footer -->
+
+    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-container">
@@ -542,12 +579,12 @@
                 <div class="footer-col">
                     <h3>Link Utili</h3>
                     <ul class="footer-links">
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#servizi">Servizi</a></li>
-                        <li><a href="#punti-forza">Punti di Forza</a></li>
-                        <li><a href="#riparazioni">Prezzi Riparazioni</a></li>
-                        <li><a href="#chi-siamo">Chi Siamo</a></li>
-                        <li><a href="#contatti">Contatti</a></li>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="servizi.html">Servizi</a></li>
+                        <li><a href="index.html#punti-forza">Punti di Forza</a></li>
+                        <li><a href="index.html#riparazioni">Prezzi Riparazioni</a></li>
+                        <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
+                        <li><a href="index.html#contatti">Contatti</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
