@@ -253,10 +253,10 @@
             overflow: hidden;
             box-shadow: var(--shadow-lg);
         }
-        @media (max-width: 768px) {
-            .hero-slider {
-                height: 250px;
-            }
+        .mobile-toggle {
+         display: block;
+         padding-right: 10px;   /* <-- ajoute un espacement à droite */
+        }
         }
         .hero-slider .slides {
              display: flex;
@@ -271,7 +271,8 @@
          object-fit: cover;
          display: block;
          flex-shrink: 0;
-        }
+        }
+
         .hero-slider .slide-nav {
             position: absolute;
             bottom: 20px;
