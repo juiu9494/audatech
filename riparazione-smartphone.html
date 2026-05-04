@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Audatech Informatica: riparazione smartphone, tablet e telefoni cordless a Montemarciano. Schermi, batterie, connettori, microfoni. Diagnostica espressa, tutte le marche, garanzia 12 mesi sui ricambi." />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Audatech Informatica: riparazione smartphone, tablet e telefoni cordless a Montemarciano. Diagnostica espressa, tutte le marche, garanzia 12 mesi sui ricambi.">
     <title>Riparazione Smartphone, Tablet e Cordless | Audatech Informatica</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        /* CSS IDENTICO ALLA HOME PAGE (versione corretta) */
         :root {
             --primary: #080d12;
             --primary-dark: #003d82;
@@ -115,34 +113,6 @@
             background-color: var(--primary-dark);
             transform: translateY(-3px);
             box-shadow: var(--shadow-lg);
-        }
-
-        .btn-secondary {
-            background-color: #0056b3;
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background-color: #003d82;
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary);
-            border: 2px solid var(--primary);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary);
-            color: white;
-        }
-
-        .btn-accent {
-            background-color: var(--accent);
-        }
-
-        .btn-accent:hover {
-            background-color: #e55a2b;
         }
 
         .btn-whatsapp {
@@ -376,7 +346,7 @@
             }
         }
 
-        /* Hero (specifico per questa pagina) */
+        /* Hero specifico */
         .page-hero {
             padding: 180px 0 100px;
             background: linear-gradient(135deg, #002856 0%, #0056b3 100%);
@@ -415,107 +385,33 @@
             color: #00a8ff;
         }
 
-        /* Services grid (identica) */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .service-card {
+        /* Gallery */
+        .gallery {
             background-color: white;
-            border-radius: var(--radius);
-            padding: 40px 30px;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            text-align: center;
-            border-top: 4px solid transparent;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
-        .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-            border-top: 4px solid #0056b3;
-        }
-        .service-icon {
-            width: 80px; height: 80px;
-            background-color: var(--primary-light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 25px;
-            color: var(--primary);
-            font-size: 2rem;
-        }
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            color: var(--dark);
-        }
-        .service-card p {
-            color: var(--text-light);
-            margin-bottom: 20px;
-        }
-        .service-price {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 20px;
-        }
-        .service-price span {
-            font-size: 1rem;
-            color: var(--text-light);
-            font-weight: 400;
-        }
-
-        /* Repair listino */
-        .repair-types { background-color: white; }
-        .repair-container {
+        .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
         }
-        .repair-type {
-            background-color: var(--light);
+        .gallery-item {
             border-radius: var(--radius);
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
         }
-        .repair-type:hover {
-            transform: translateY(-10px);
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
             box-shadow: var(--shadow-lg);
         }
-        .repair-header {
-            background-color: var(--primary);
-            color: white;
-            padding: 25px;
-            text-align: center;
-        }
-        .repair-header i { font-size: 3rem; margin-bottom: 15px; }
-        .repair-header h3 { font-size: 1.5rem; color: white; }
-        .repair-list { padding: 30px; }
-        .repair-list ul { list-style: none; }
-        .repair-list li {
-            padding: 12px 0;
-            border-bottom: 1px solid var(--gray-dark);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .repair-list li:last-child { border-bottom: none; }
-        .repair-price {
-            background-color: #0056b3;
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
 
-        /* Brands (stessa) */
+        /* Brands */
         .brands { background-color: var(--light); }
         .brands-grid {
             display: grid;
@@ -538,7 +434,7 @@
         .brand-icon { font-size: 3rem; color: var(--text-light); margin-bottom: 15px; }
         .brand-item h4 { font-size: 1.2rem; color: var(--dark); }
 
-        /* Footer (identico) */
+        /* Footer */
         footer {
             background-color: var(--dark);
             color: white;
@@ -597,20 +493,10 @@
             font-size: 0.9rem;
         }
 
-        /* Responsive (mantenuto) */
-        @media (max-width: 1100px) {
-            .contact-details { grid-template-columns: repeat(2, 1fr); }
-        }
+        /* Responsive */
         @media (max-width: 768px) {
             .page-hero { padding: 140px 0 80px; }
             .page-hero h1 { font-size: 2.2rem; }
-            .services-grid { grid-template-columns: 1fr; }
-            .repair-container { grid-template-columns: 1fr; }
-            .section-padding { padding: 70px 0; }
-            .whatsapp-float { bottom: 20px; right: 15px; }
-            .whatsapp-float .whatsapp-circle { width: 50px; height: 50px; font-size: 1.4rem; }
-            .btn-whatsapp { padding: 14px 28px; font-size: 1rem; }
-            .btn-whatsapp i { font-size: 1.4rem; }
         }
     </style>
 </head>
@@ -637,7 +523,7 @@
             </div>
             <ul class="nav-desktop" id="navDesktop">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="riparazione-smartphone-tablet-cordless.html" class="active" style="color:var(--accent); font-weight:600;">Smartphone & Tablet</a></li>
+                <li><a href="riparazione-smartphone-tablet-cordless.html" style="color:var(--accent); font-weight:600;">Smartphone & Tablet</a></li>
                 <li><a href="index.html#punti-forza">Punti di Forza</a></li>
                 <li><a href="index.html#chi-siamo">Chi Siamo</a></li>
                 <li><a href="index.html#contatti" class="nav-cta">Contattaci</a></li>
@@ -645,7 +531,7 @@
         </div>
     </header>
 
-    <!-- HERO SPECIFICO -->
+    <!-- Hero -->
     <section class="page-hero">
         <div class="container">
             <h1>Riparazione Smartphone, Tablet e Cordless</h1>
@@ -661,106 +547,31 @@
         </div>
     </section>
 
-    <!-- SERVIZI PRINCIPALI CON PREZZI -->
-    <section class="services section-padding">
+    <!-- Galleria immagini riparazioni (sostituisce le sezioni rimosse) -->
+    <section class="gallery section-padding">
         <div class="container">
             <div class="section-title">
-                <h2>I nostri servizi dedicati</h2>
-                <p>Interveniamo su ogni modello con ricambi di primissima qualità. Prezzi trasparenti e chiari.</p>
+                <h2>I nostri lavori</h2>
+                <p>Uno sguardo alle riparazioni che eseguiamo ogni giorno</p>
             </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Smartphone</h3>
-                    <p>Schermo, batteria, connettore di ricarica, microfono, altoparlante, tasti, fotocamera, scheda madre.</p>
-                    <div class="service-price">da <span>49€</span></div>
-                    <a href="#listino" class="btn btn-secondary">Vedi listino</a>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.latribudesexperts.fr%2Fwp-content%2Fuploads%2F2023%2F11%2Freparation-smartphone.jpg&f=1&nofb=1&ipt=fffae1c5a120d3197e7a6e903964388db3b0c9b65fb6b901f5054d7b7c4c3bd1" alt="Riparazione smartphone">
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-tablet-alt"></i></div>
-                    <h3>Tablet</h3>
-                    <p>Vetro touch, display, batteria, connettore, pulsanti, software. Assistenza per iPad, Samsung, Lenovo e altri.</p>
-                    <div class="service-price">da <span>59€</span></div>
-                    <a href="#listino" class="btn btn-secondary">Vedi listino</a>
+                <div class="gallery-item">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse2.mm.bing.net%2Fth%2Fid%2FOIP.Wd7gtfnUHdFbno3PICe6uQHaE8%3Fpid%3DApi&f=1&ipt=286028c6ab51bc603c3687b203c35825d726a8f11980022ea1a57c5f51e22b1f&ipo=images" alt="Riparazione tablet">
                 </div>
-                <div class="service-card">
-                    <div class="service-icon"><i class="fas fa-phone-alt"></i></div>
-                    <h3>Telefoni Cordless</h3>
-                    <p>Sostituzione batterie, display, riparazione basi e portatili. Compatibili Gigaset, Panasonic, Philips, BT.</p>
-                    <div class="service-price">da <span>35€</span></div>
-                    <a href="#listino" class="btn btn-secondary">Vedi listino</a>
+                <div class="gallery-item">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.vtjoliet.com%2Fwp-content%2Fuploads%2F2021%2F03%2FTablet-Repair.jpg&f=1&nofb=1&ipt=6f7188bf0a7441d2a4af5d4fb6fb83004ce1e3da622c0c12dc375a0a067574f2" alt="Riparazione tablet professionale">
+                </div>
+                <div class="gallery-item">
+                    <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.next-post.com%2Fwp-content%2Fuploads%2F2025%2F10%2FLes-erreurs-a-eviter-lors-de-la-reparation-de-tablette-Samsung.jpg&f=1&nofb=1&ipt=59804ac5642ea2af95bb95ad216ac7e64c0ff31c8ad21dd6837e0261e9138f89" alt="Riparazione tablet Samsung">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- LISTINO DETTAGLIATO -->
-    <section class="repair-types section-padding" id="listino">
-        <div class="container">
-            <div class="section-title">
-                <h2>Listino prezzi indicativo</h2>
-                <p>Prezzi comprensivi di manodopera e IVA. La garanzia di 12 mesi copre tutti i componenti sostituiti.</p>
-            </div>
-            <div class="repair-container">
-                <!-- Smartphone -->
-                <div class="repair-type">
-                    <div class="repair-header">
-                        <i class="fas fa-mobile-alt"></i>
-                        <h3>Smartphone</h3>
-                    </div>
-                    <div class="repair-list">
-                        <ul>
-                            <li>Sostituzione schermo <span class="repair-price">da 79€</span></li>
-                            <li>Sostituzione batteria <span class="repair-price">da 49€</span></li>
-                            <li>Riparazione connettore carica <span class="repair-price">da 59€</span></li>
-                            <li>Sostituzione microfono <span class="repair-price">da 45€</span></li>
-                            <li>Sostituzione altoparlante <span class="repair-price">da 45€</span></li>
-                            <li>Riparazione tasto home / laterali <span class="repair-price">da 39€</span></li>
-                            <li>Recupero dati (software) <span class="repair-price">da 49€</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Tablet -->
-                <div class="repair-type">
-                    <div class="repair-header">
-                        <i class="fas fa-tablet-alt"></i>
-                        <h3>Tablet</h3>
-                    </div>
-                    <div class="repair-list">
-                        <ul>
-                            <li>Sostituzione schermo / vetro <span class="repair-price">da 99€</span></li>
-                            <li>Sostituzione batteria <span class="repair-price">da 69€</span></li>
-                            <li>Riparazione connettore carica <span class="repair-price">da 65€</span></li>
-                            <li>Sostituzione microfono <span class="repair-price">da 55€</span></li>
-                            <li>Riparazione pulsanti <span class="repair-price">da 45€</span></li>
-                            <li>Aggiornamento software / reset <span class="repair-price">da 39€</span></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- Cordless -->
-                <div class="repair-type">
-                    <div class="repair-header">
-                        <i class="fas fa-phone-alt"></i>
-                        <h3>Cordless</h3>
-                    </div>
-                    <div class="repair-list">
-                        <ul>
-                            <li>Sostituzione batteria portatile <span class="repair-price">da 35€</span></li>
-                            <li>Riparazione display <span class="repair-price">da 45€</span></li>
-                            <li>Sostituzione tastiera <span class="repair-price">da 40€</span></li>
-                            <li>Riparazione base / alimentatore <span class="repair-price">da 55€</span></li>
-                            <li>Reset e riprogrammazione <span class="repair-price">da 29€</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <p style="text-align: center; margin-top: 30px; color: var(--text-light);">
-                * I prezzi sono indicativi e possono variare in base al modello e alla complessità dell’intervento. Contattaci per un preventivo preciso!
-            </p>
-        </div>
-    </section>
-
-    <!-- MARCHI RIPARATI -->
+    <!-- Marchi -->
     <section class="brands section-padding">
         <div class="container">
             <div class="section-title">
@@ -778,14 +589,13 @@
                 <div class="brand-item"><div class="brand-icon"><i class="fas fa-mobile-alt"></i></div><h4>LG</h4></div>
                 <div class="brand-item"><div class="brand-icon"><i class="fas fa-mobile-alt"></i></div><h4>Nokia</h4></div>
                 <div class="brand-item"><div class="brand-icon"><i class="fas fa-mobile-alt"></i></div><h4>Honor</h4></div>
-                <!-- Cordless -->
                 <div class="brand-item"><div class="brand-icon"><i class="fas fa-phone"></i></div><h4>Gigaset</h4></div>
                 <div class="brand-item"><div class="brand-icon"><i class="fas fa-phone"></i></div><h4>Panasonic</h4></div>
             </div>
         </div>
     </section>
 
-    <!-- CALL TO ACTION FINALE -->
+    <!-- CTA finale -->
     <section class="section-padding" style="background: var(--light); text-align: center;">
         <div class="container">
             <h2 style="font-size: 2rem; margin-bottom: 20px;">Pronto a riparare il tuo dispositivo?</h2>
@@ -842,7 +652,7 @@
     </footer>
 
     <script>
-        // Mobile menu (stesso script della home)
+        // Mobile menu (unifié)
         const mobileToggle = document.getElementById('mobileToggle');
         const navDesktop = document.getElementById('navDesktop');
         mobileToggle.addEventListener('click', () => {
