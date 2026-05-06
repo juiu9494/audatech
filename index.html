@@ -717,33 +717,33 @@
             box-shadow: var(--shadow-lg);
         }
         .map-container iframe { width: 100%; height: 450px; border: 0; }
-
-             /* ========== FOOTER IMAGINE yep yep ========== */
-
-        .footer-image {
-            text-align: center;
-            margin: 40px 0 30px;
-        }
-        .footer-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-        }
-        /* Su desktop riduciamo leggermente la larghezza massima */
-        @media (min-width: 768px) {
-            .footer-image img {
-                max-width: 600px;
-            }
-        }
-        /* Su mobile l’immagine si adatta a tutto lo schermo */
-        @media (max-width: 480px) {
-            .footer-image {
-                margin: 25px 0 20px;
-            }
-        }
-                
+                /* ========== FOOTER IMAGE FULL WIDTH ========== */
         
+        .footer-image {
+            width: 100%;
+            margin: 40px 0 0;
+        }
+        
+        .footer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* 📱 Mobile */
+        @media (max-width: 768px) {
+            .footer-image {
+                margin: 25px 0 0;
+            }
+        }
+        
+        /* 💻 Desktop large (optionnel pour meilleur rendu) */
+        @media (min-width: 1400px) {
+            .footer-image img {
+                max-height: 400px; /* évite une image trop géante */
+                object-fit: cover;
+            }
+        }
         .social-links a:hover {
             background-color: #0056b3;
             transform: translateY(-3px);
@@ -1102,18 +1102,24 @@ Avevo per sbaglio cancellato la galleria dal mio telefono e lui mi ha salvato la
     </section>
 
  <footer>
+
     <div class="container">
         <div class="footer-container">
-            <!-- colonne esistenti -->
+            <!-- tes colonnes -->
         </div>
-        <!-- Immagine footer aggiunta qui -->
-        <div class="footer-image">
-            <img src="footer.png" alt="Audatech Footer Banner">
-        </div>
+    </div>
+
+    <!-- IMAGE FULL WIDTH -->
+    <div class="footer-image">
+        <img src="footer.png" alt="Audatech Footer Banner">
+    </div>
+
+    <div class="container">
         <div class="copyright">
             <p>&copy; 2026 Audatech Informatica. Tutti i diritti riservati. | P.IVA 02823020421</p>
         </div>
     </div>
+
 </footer>
     <script>
         // Mobile menu
