@@ -422,65 +422,44 @@
             color: #0050aa;
         }
 
-        /* ========== FOOTER ========== */
-        footer {
-            background-color: var(--dark);
-            color: white;
-            padding: 80px 0 30px;
+                /* ========== FOOTER IMAGE FULL WIDTH ========== */
+        
+        .footer-image {
+            width: 100%;
+            margin: 40px 0 0;
         }
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            margin-bottom: 60px;
+        
+        .footer-image img {
+            width: 100%;
+            height: auto;
+            display: block;
         }
-        .footer-col h3 {
-            font-size: 1.3rem;
-            margin-bottom: 25px;
-            color: white;
-            position: relative;
-            padding-bottom: 10px;
+        
+        /* 📱 Mobile */
+        @media (max-width: 768px) {
+            .footer-image {
+                margin: 25px 0 0;
+            }
         }
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 40px;
-            height: 2px;
+        
+        /* 💻 Desktop large (optionnel pour meilleur rendu) */
+        @media (min-width: 1400px) {
+            .footer-image img {
+                max-height: 400px; /* évite une image trop géante */
+                object-fit: cover;
+            }
+        }
+        .social-links a:hover {
             background-color: #0056b3;
+            transform: translateY(-3px);
         }
-        .footer-logo {
-            display: flex;
-            flex-direction: column;
-            margin-bottom: 20px;
-        }
-        .footer-logo h3 {
-            font-size: 1.8rem;
-            margin-bottom: 5px;
-        }
-        .footer-logo span {
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #343a40;
+            color: #adb5bd;
             font-size: 0.9rem;
-            color: #adb5bd;
-            letter-spacing: 1px;
         }
-        .footer-col p {
-            color: #adb5bd;
-            margin-bottom: 25px;
-        }
-        .footer-links {
-            list-style: none;
-        }
-        .footer-links li {
-            margin-bottom: 12px;
-        }
-        .footer-links a {
-            color: #adb5bd;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        .footer-links a:hover {
-            color: white;
         }
         .social-links {
             display: flex;
@@ -653,55 +632,26 @@
             </form>
         </div>
     </div>
+     <footer>
 
-    <!-- FOOTER -->
-    <footer>
-        <div class="container">
-            <div class="footer-container">
-                <div class="footer-col">
-                    <div class="footer-logo">
-                        <h3>Audatech Informatica</h3><span>Riparazioni Professionali</span>
-                    </div>
-                    <p>Ripariamo smartphone, tablet, PC e dispositivi elettronici con componenti di qualità e garanzia estesa.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/audatech_marina?igsh=eDBsdjBocjh6OA==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Link Utili</h3>
-                    <ul class="footer-links">
-                        <li><a href="./index.html">Home</a></li>
-                        <li><a href="./servizi.html">Servizi</a></li>
-                        <li><a href="./index.html#punti-forza">Punti di Forza</a></li>
-                        <li><a href="./index.html#chi-siamo">Chi Siamo</a></li>
-                        <li><a href="./index.html#contatti">Contatti</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Servizi</h3>
-                    <ul class="footer-links">
-                        <li><a href="./servizi.html">Riparazione Smartphone</a></li>
-                        <li><a href="./servizi.html">Riparazione PC & Laptop</a></li>
-                        <li><a href="./servizi.html">Stampa 3D Personalizzata</a></li>
-                        <li><a href="./servizi.html">Riparazione a Domicilio</a></li>
-                        <li><a href="./servizi.html">Recupero Dati</a></li>
-                        <li><a href="./servizi.html">Assistenza da Remoto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contatti</h3>
-                    <ul class="footer-links">
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> Via Adriatica, 17, 60018 Montemarciano AN</li>
-                        <li><i class="fas fa-phone-alt" style="margin-right: 10px;"></i> +39 3478575458</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> audatechitalia@gmail.com</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2026 Audatech Informatica. Tutti i diritti riservati. | P.IVA 02823020421</p>
-            </div>
+    <div class="container">
+        <div class="footer-container">
+            <!-- tes colonnes -->
         </div>
-    </footer>
+    </div>
+
+    <!-- IMAGE FULL WIDTH -->
+    <div class="footer-image">
+        <img src="footer.png" alt="Audatech Footer Banner">
+    </div>
+
+    <div class="container">
+        <div class="copyright">
+            <p>&copy; 2026 Audatech Informatica. Tutti i diritti riservati. | P.IVA 02823020421</p>
+        </div>
+    </div>
+
+</footer>
 
     <script>
         // ========== DATI DI CONTATTO REALI AUDATECH ==========
